@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	path := "C:\\Users\\Sai Wentum\\Documents\\Programming Projects\\Advent Of Code\\2015\\Golang Oct 2024\\textFiles\\"
+	path := "../textFiles/"
 	fileName := "day4final.txt"
 	partOne(path, fileName)
 	//fileName = "day3Test.txt"
