@@ -35,7 +35,7 @@ func PartOne(path, fileName string) {
 			getNumberReturn0IfError(dimensions[1]),
 			getNumberReturn0IfError(dimensions[2]))
 	}
-	fmt.Println("Answer to Day 1 Part 1:", sum)
+	fmt.Println("Answer to Day 2 Part 1:", sum)
 
 }
 
@@ -73,7 +73,7 @@ func PartTwo(path, fileName string) {
 			getNumberReturn0IfError(dimensions[1]),
 			getNumberReturn0IfError(dimensions[2]))
 	}
-	fmt.Println("Answer to Day 1 Part 2:", sum)
+	fmt.Println("Answer to Day 2 Part 2:", sum)
 
 }
 

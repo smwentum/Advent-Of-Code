@@ -26,7 +26,7 @@ func partOne(path, fileName string) {
 	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
-		fmt.Println("The answer to Day1Part1", getNumberOfHouseWhoGotAPresent(scanner.Text()))
+		fmt.Println("The answer to Day3Part1", getNumberOfHouseWhoGotAPresent(scanner.Text()))
 	}
 
 }
@@ -73,7 +73,7 @@ func partTwo(path, fileName string) {
 	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
-		fmt.Println("The answer to Day1Part1", getNumberOfHouseWhoGotAPresentPart2(scanner.Text()))
+		fmt.Println("The answer to Day3Part1", getNumberOfHouseWhoGotAPresentPart2(scanner.Text()))
 	}
 
 }

@@ -29,7 +29,7 @@ func partOne(path, fileName string) {
 
 	for scanner.Scan() {
 		fmt.Println(
-			"The answer to Day1Part1",
+			"The answer to Day2Part1",
 			findFirstSpecialMD5Hash(scanner.Text()),
 		)
 	}
