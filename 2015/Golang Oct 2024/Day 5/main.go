@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"slices"
+	"strings"
 )
 
 func main() {
@@ -13,8 +14,8 @@ func main() {
 	path := "../textFiles/"
 	fileName := "day5final.txt"
 	partOne(path, fileName)
-	// //fileName = "day3Test.txt"
-	// partTwo(path, fileName)
+	//fileName = "day5test.txt"
+	partTwo(path, fileName)
 }
 
 func partOne(path, fileName string) {
@@ -87,4 +88,59 @@ func doesntHaveCertainStrings(s string) bool {
 
 	}
 	return true
+}
+
+func partTwo(path, fileName string) {
+	file, err := os.Open(path + fileName)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	scanner := bufio.NewScanner(file)
+	cnt := 0
+	for scanner.Scan() {
+		text := scanner.Text()
+		if isNicePt2(text) {
+			//fmt.Println(text, " is nice")
+			cnt++
+
+		} else {
+			//fmt.Println(text, " is naughty")
+		}
+	}
+	fmt.Println("answer to day 5 part 2:", cnt)
+}
+
+func isNicePt2(s string) bool {
+	return containsTwoPairs(s) && duplicatedOneStringEver(s)
+}
+
+func duplicatedOneStringEver(str string) bool {
+	for i, _ := range str {
+		if i < len(str)-2 {
+			if str[i] == str[i+2] && str[i] != str[i+1] {
+				return true
+			}
+		}
+
+	}
+	return false
+}
+
+func containsTwoPairs(str string) bool {
+	//fmt.Println()
+	for i, _ := range str {
+		if i < len(str)-3 {
+			// fmt.Println("s:", str)
+			// fmt.Println("s1:", str[i:i+2])
+			// fmt.Println("s2:", str[i+2:])
+
+			if strings.Contains(str[i+2:], str[i:i+2]) {
+				return true
+			}
+		}
+
+	}
+	return false
 }
