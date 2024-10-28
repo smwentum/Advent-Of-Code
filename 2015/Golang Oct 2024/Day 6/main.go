@@ -59,14 +59,14 @@ func readLine(line string) {
 		flipLightsPt2(x1, y1, x2, y2, false, true)
 
 	} else if strings.Contains(line, "toggle") {
-		fmt.Println(line[7:])
+		//fmt.Println(line[7:])
 		x1, y1 = getCoordinates(strings.Split(line[7:], " ")[0])
 		x2, y2 = getCoordinates(strings.Split(line[7:], " ")[2])
 		flipLights(x1, y1, x2, y2, true, false)
 		flipLightsPt2(x1, y1, x2, y2, true, false)
 
 	} else if strings.Contains(line, "turn off") {
-		fmt.Println(line[9:])
+		//fmt.Println(line[9:])
 		x1, y1 = getCoordinates(strings.Split(line[9:], " ")[0])
 		x2, y2 = getCoordinates(strings.Split(line[9:], " ")[2])
 		flipLights(x1, y1, x2, y2, false, false)
