@@ -5,6 +5,7 @@
 #include <vector>
 
 void dayTwoPart1(std::string fileName);
+void dayTwoPartTwo(std::string fileName);
 
 class Dimensions
 {
@@ -27,11 +28,20 @@ class Dimensions
         {
            return std::min(m_length*m_width, std::min(m_length*m_height,m_width*m_height));
         }
+        int productOfDimensions()
+        {
+            return m_length*m_width*m_height;
+        }
+        int getMinPerimeteter()
+        {
+            return 2 * std::min(m_length+m_width, std::min(m_length+m_height,m_width+m_height));
+        }
 };
 
 int main()
 {
     dayTwoPart1("../test/day2final.txt");
+    dayTwoPartTwo("../test/day2final.txt");
     return 0;
 }
 
@@ -72,6 +82,30 @@ void dayTwoPart1(std::string fileName)
     }
 
     std::cout << "Day Two part 1: "<< sum << "\n";
+
+}
+
+
+
+void dayTwoPartTwo(std::string fileName)
+{
+    std::string line{};
+    std::ifstream inFile(fileName);
+
+    std::vector<Dimensions> dimensions;
+    int sum{};
+    while(std::getline(inFile,line))
+    {
+       //std::cout << line << "\n";
+       std::vector<std::string> tokens =   stringSplit(line,"x");
+       //std::cout <<"tokens: " << tokens[0]  //<< " " << tokens[1] << " " <<tokens[2]
+       //<< "\n";
+       Dimensions d = Dimensions(std::stoi(tokens[0]), std::stoi(tokens[1]),std::stoi(tokens[2]) );
+       sum += d.productOfDimensions() + d.getMinPerimeteter();
+       //std::cout << max;
+    }
+
+    std::cout << "Day Two part 2: "<< sum << "\n";
 
 }
 
