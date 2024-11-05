@@ -14,7 +14,7 @@ def main():
         
         for direction in directions: 
             pos = getNewLocation(direction,pos)
-    print(abs(pos.x) + abs(pos.y))
+    print("Day one part one answer: "+ str(abs(pos.x) + abs(pos.y)))
 
 def getNewLocation(direction, pos):
     print(direction)
