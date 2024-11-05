@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	path := "C:\\Users\\Sai Wentum\\Documents\\Programming Projects\\Advent Of Code\\2015\\Golang Oct 2024\\textFiles\\"
+	path := "../textFiles/"
 	fileName := "day3final.txt"
 	partOne(path, fileName)
 	//fileName = "day3Test.txt"
@@ -56,8 +56,6 @@ func getNumberOfHouseWhoGotAPresent(directions string) int {
 	return len(houses)
 }
 
-
-
 func getStringFromTwoInts(row, col int) string {
 	return fmt.Sprintf("%d,%d", row, col)
 }
@@ -77,7 +75,6 @@ func partTwo(path, fileName string) {
 	}
 
 }
-
 
 func getNumberOfHouseWhoGotAPresentPart2(directions string) int {
 

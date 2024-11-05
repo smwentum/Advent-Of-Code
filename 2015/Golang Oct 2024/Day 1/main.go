@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	path := "C:\\Users\\Sai Wentum\\Documents\\Programming Projects\\Advent Of Code\\2015\\Golang Oct 2024\\textFiles\\"
+	path := "../textFiles/"
 	fileName := "day1Part1Final.txt"
 	PartOne(path, fileName)
 	//fileName = "day1part2test.txt"
