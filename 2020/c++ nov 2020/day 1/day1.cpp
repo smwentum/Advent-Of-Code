@@ -30,7 +30,7 @@ void dayOnePartOne(std::string fileName)
         int x =  std::stoi(str);
         if( lst.count(2020 - x) == 1)
         {
-            std::cout << "Day 1 part 1 answer: " << (2020 -x)*x << "\n";
+            std::cout << "Day 1 part 1: " << (2020 -x)*x << "\n";
             break;
         }
         else
