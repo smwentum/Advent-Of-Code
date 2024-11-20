@@ -14,7 +14,7 @@ def partOne(fileName):
             row = getRow(line)
             col = getCol(line[7:12])
             m = max(m, 8*row+col)
-        print("Day 5 part One: ",m)
+        print("Day 5 part One:",m)
 
 def partTwo(fileName):
     set1 = set()
@@ -32,7 +32,8 @@ def partTwo(fileName):
             if 8*row+col in set1:
                 set1.remove(8*row+col)
         for s1 in set1:
-            print("possible answer to s2",s1)
+            if s1 >100 and s1 < 990:
+                print("Day 5 Part Two:",s1)
 
 def getSeatId(line):
     row = getRow(line[0:8])
