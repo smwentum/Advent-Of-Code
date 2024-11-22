@@ -93,7 +93,7 @@ def getCount(d,bag):
         s+= t[1]*getCount(d,t[0])
 
     counts[bag] =s
-    print(bag,s)
+    #print(bag,s)
     return s
 
 main()
