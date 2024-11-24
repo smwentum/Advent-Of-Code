@@ -2,6 +2,7 @@ import heapq
 
 def main():
     part_one("../textfile/day9final.txt")
+    part_two("../textfile/day9final.txt")
 
 def part_one(fileName):
 
@@ -47,8 +48,39 @@ def part_one(fileName):
                 current_value = int(lines[index])
         if l >= r:
             print("Day nine part one:",(lines[index]))
+            return(lines[index])
 
         #print(currentList)
+
+
+def part_two(fileName):
+
+    with open(fileName,encoding="utf-8") as f:
+        lines = list(map(int, f.read().splitlines()))
+        part_one_answer = int(part_one(fileName))
+        #i am going to do a sliding window
+        s= 0
+        l = 0
+        r = 0
+        while s != part_one_answer:
+            #print("sumIWant,s:",part_one_answer,s)
+            if s < part_one_answer:
+                s += lines[r]
+                r+=1
+
+            elif s > part_one_answer:
+                s -= lines[l]
+                l += 1
+
+        mx = -1
+        mn = 10E40
+        for i in range(l,r+1):
+            if lines[i] > mx:
+                mx = lines[i]
+            if lines[i] < mn:
+                mn = lines[i]
+
+        print("day 9 part two answer",mx+mn)
 
 
 
