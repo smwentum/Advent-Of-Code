@@ -2,6 +2,7 @@ import heapq
 
 def main():
     part_one("../textfile/day10final.txt")
+    part_two("../textfile/day10final.txt")
 
 def part_one(fileName):
     with open(fileName,encoding="utf-8") as f:
@@ -30,6 +31,33 @@ def part_one(fileName):
         #print("3-diff",diff3)
         print("Day 10 part one:",diff1*diff3 )
 
+def part_two(fileName):
+
+
+    with open(fileName,encoding="utf-8") as f:
+        h = list(map(int, f.read().splitlines()))
+        s.add(0)
+        s.add(max(h)+3)
+        for x in h:
+            s.add(x)
+        d[max(h)+3] =1
+
+    #i am going to try memoization with recursion
+    print("Day 10 part two", getValue(0))
+
+def getValue(v):
+    #print(v)
+    if v in d:
+        return d[v]
+    s1 = 0
+    if v in s:
+        s1 = getValue(v+1)+ getValue(v+2) + getValue(v+3)
+
+    d[v] = s1
+    return s1
+
+d = dict()
+s = set()
 
 
 main()
