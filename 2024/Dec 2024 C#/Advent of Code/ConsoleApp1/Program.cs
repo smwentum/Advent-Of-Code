@@ -16,6 +16,7 @@
             }
 
             GetDiffernce(l1, l2);
+            GetCountProductSum(l1, l2);
         }
 
         static void GetDiffernce(List<int> l1, List<int> l2)
@@ -28,6 +29,16 @@
                 sum += Math.Abs(l1[i] - l2[i]);
             }
             Console.WriteLine($"Day One part one {sum}");
+        }
+
+        static void GetCountProductSum(List<int> l1, List<int> l2)
+        {
+            long sum = 0;
+            foreach (int l in l1)
+            {
+                sum += (long)(l * l2.Count(m=>m ==l));
+            }
+            Console.WriteLine($"Day One part two {sum}");
         }
     }
 }
