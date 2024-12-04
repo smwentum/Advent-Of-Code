@@ -25,7 +25,7 @@ def part_one(fileName):
             # print(prod)
             a, b = prod.split(",")
             sum_product += int(a)*int(b)
-        print("Day one part one:", sum_product)
+        print("Day three part one:", sum_product)
 
 
 def part_two(fileName):
@@ -86,7 +86,7 @@ def part_two(fileName):
             # print(prod)
             a, b = prod.split(",")
             sum_product += int(a)*int(b)
-        print("Day one part two:", sum_product)
+        print("Day three part two:", sum_product)
 
 
 main()
