@@ -1,6 +1,8 @@
 def main():
     fileName = "../textfiles/day4final.txt"
     part_one(fileName)
+    fileName = "../textfiles/day4test.txt"
+    part_two(fileName)
 
 
 def part_one(fileName):
@@ -12,6 +14,17 @@ def part_one(fileName):
                 if lines[i][j] == 'X':
                     cnt += getAllXMAS(lines, i, j)
         print("Day Four part 1:", cnt)
+
+
+def part_two(fileName):
+    with open(fileName, encoding="utf8") as f:
+        lines = f.read().splitlines()
+        cnt = 0
+        for i, _ in enumerate(lines):
+            for j, _ in enumerate(lines[i]):
+                if lines[i][j] == 'M':
+                    cnt += getAllXMASPT2(lines, i, j)
+        print("Day Four part 2:", cnt)
 
 
 def getAllXMAS(lines, i, j):
@@ -27,6 +40,30 @@ def getAllXMAS(lines, i, j):
 
     cnt += down_diag_right(lines, i, j)
     cnt += down_diag_left(lines, i, j)
+
+    return cnt
+
+
+def getAllXMASPT2(lines, i, j, jmp):
+    cnt = 0
+    jmp = 2
+    if (down_diag_right(lines, i-1, j-1) == 1 and down_diag_left(lines, i-1, j-1+jmp) == 1):
+        cnt += 1
+
+    if (down_diag_right(lines, i-1, j-1) == 1 and up_diag_right(lines, i-1, j-1-jmp) == 1):
+        cnt += 1
+
+    if (up_diag_right(lines, i+1, j-1) == 1 and down_diag_right(lines, i+1-jmp, j-1) == 1):
+        cnt += 1
+
+    if (up_diag_right(lines, i+1, j-1) == 1 and up_diag_right(lines, i+1, j-1+jmp) == 1):
+        cnt += 1
+
+    # cnt += up_diag_right(lines, i, j)
+    # cnt += up_diag_left(lines, i, j)
+
+    # cnt += down_diag_right(lines, i, j)
+    # cnt += down_diag_left(lines, i, j)
 
     return cnt
 
@@ -92,7 +129,7 @@ def up_diag_left(lines, i, j):
 
 
 def up_diag_right(lines, i, j):
-    if i < 3 or len(lines[i])-j <= 3:
+    if i < 3 or (i < len(lines) and len(lines[i])-j <= 3):
         return 0
     if lines[i-1][j+1] == 'M' and lines[i-2][j+2] == 'A' and lines[i-3][j+3] == 'S':
         return 1
@@ -100,3 +137,6 @@ def up_diag_right(lines, i, j):
 
 
 main()
+
+
+# 2110 too high
