@@ -1,7 +1,7 @@
 def main():
     fileName = "../textfiles/day4final.txt"
     part_one(fileName)
-    fileName = "../textfiles/day4test.txt"
+    fileName = "../textfiles/day4final.txt"
     part_two(fileName)
 
 
@@ -22,8 +22,8 @@ def part_two(fileName):
         cnt = 0
         for i, _ in enumerate(lines):
             for j, _ in enumerate(lines[i]):
-                if lines[i][j] == 'M':
-                    cnt += getAllXMASPT2(lines, i, j)
+                if lines[i][j] == 'A':
+                    cnt += getAllXMASPT2A(lines, i, j)
         print("Day Four part 2:", cnt)
 
 
@@ -44,13 +44,13 @@ def getAllXMAS(lines, i, j):
     return cnt
 
 
-def getAllXMASPT2(lines, i, j, jmp):
+def getAllXMASPT2(lines, i, j):
     cnt = 0
-    jmp = 2
+    jmp = 4
     if (down_diag_right(lines, i-1, j-1) == 1 and down_diag_left(lines, i-1, j-1+jmp) == 1):
         cnt += 1
 
-    if (down_diag_right(lines, i-1, j-1) == 1 and up_diag_right(lines, i-1, j-1-jmp) == 1):
+    if (down_diag_right(lines, i-1, j-1) == 1 and up_diag_right(lines, i-1+jmp, j-1) == 1):
         cnt += 1
 
     if (up_diag_right(lines, i+1, j-1) == 1 and down_diag_right(lines, i+1-jmp, j-1) == 1):
@@ -66,6 +66,23 @@ def getAllXMASPT2(lines, i, j, jmp):
     # cnt += down_diag_left(lines, i, j)
 
     return cnt
+
+def getAllXMASPT2A(lines, i, j):
+
+    s = []
+    if i >0 and i < len(lines) -1   and j > 0 and j < len(lines[i])  -1:
+        if lines[i-1][j-1] == lines[i+1][j+1]:
+            return 0
+        s.append(lines[i-1][j-1])
+        s.append(lines[i+1][j+1])
+        s.append(lines[i+1][j-1])
+        s.append(lines[i-1][j+1])
+        s.sort()
+        #print(s)
+        if s[0] == "M" and s[1] == "M" and s[2] == "S" and s[3] == "S":
+            return 1
+    return 0
+
 
 
 def up(lines, i, j):
