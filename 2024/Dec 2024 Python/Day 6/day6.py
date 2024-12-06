@@ -1,9 +1,9 @@
 def main():
     fileName = "../textfiles/day6final.txt"
-    part_one(file_name=fileName)
+    vistedPoints = part_one(file_name=fileName)
 
     fileName = "../textfiles/day6final.txt"
-    part_two(file_name=fileName)
+    part_two(fileName, vistedPoints)
 
 
 def part_one(file_name):
@@ -35,9 +35,10 @@ def part_one(file_name):
                 break
 
         print("Day 6 part One:", len(visitedPoints))
+        return visitedPoints
 
 
-def part_two(file_name):
+def part_two(file_name, vistedPoints):
     with open(file=file_name, encoding="utf8") as f:
         grid = f.read().splitlines()
         # find the staring position
@@ -53,11 +54,12 @@ def part_two(file_name):
 
         for i, _ in enumerate(grid):
             for j, _ in enumerate(grid):
-                if grid[i][j] == '.':
-                    grid[i] = stringReplace(grid[i], j, '#')
-                    if simulateGettingStuckInTheLoop(grid, startX, startY, startDirection):
-                        cnt += 1
-                    grid[i] = stringReplace(grid[i], j, '.')
+                if (i, j) in vistedPoints:
+                    if grid[i][j] == '.':
+                        grid[i] = stringReplace(grid[i], j, '#')
+                        if simulateGettingStuckInTheLoop(grid, startX, startY, startDirection):
+                            cnt += 1
+                        grid[i] = stringReplace(grid[i], j, '.')
 
         print("Day 6 part two:", cnt)
 
