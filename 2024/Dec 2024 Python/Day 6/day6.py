@@ -1,6 +1,7 @@
 def main():
     fileName = "../textfiles/day6final.txt"
     part_one(file_name=fileName)
+    
 
 
 def part_one(file_name):
