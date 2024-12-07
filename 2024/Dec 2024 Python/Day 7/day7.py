@@ -1,8 +1,9 @@
+import copy
 
 
 def main():
 
-    file_name = "../textfiles/day7test.txt"
+    file_name = "../textfiles/day7final.txt"
     part_one(file_name)
 
 
@@ -30,20 +31,28 @@ def isEquationPossible(line):
 
 def foundResult(result, remaining_numbers, currentValue):
     # print(currentValue, "\n")
-    print("remaing numbers", remaining_numbers)
-    if (currentValue != 0):
-        remaining_numbers.append(currentValue)
-    print("remaing numbers", remaining_numbers)
+    # print("remaing numbers", remaining_numbers)
+    if currentValue > result:
+        return False
+    if currentValue != 0:
+        remaining_numbers.insert(0, currentValue)
+    # print("remaing numbers", remaining_numbers)
     if len(remaining_numbers) == 1:
-        print("about to stop")
+        # print("about to stop")
+        # print("about to stop:", result, remaining_numbers[0])
         return result == remaining_numbers[0]
     if len(remaining_numbers) == 0:
         return False
-    a = remaining_numbers.pop()
-    b = remaining_numbers.pop()
-    print(remaining_numbers)
-    return (foundResult(result, remaining_numbers, currentValue+a*b)
-            or foundResult(result, remaining_numbers, currentValue+a+b))
+    a = remaining_numbers.pop(0)
+    b = remaining_numbers.pop(0)
+    # print(a, b)
+    x1 = copy.deepcopy(remaining_numbers)
+    x2 = copy.deepcopy(remaining_numbers)
+    if currentValue == 0:
+        return (foundResult(result, x1, a*b)
+                or foundResult(result, x2, a+b))
+    return (foundResult(result, copy.deepcopy(remaining_numbers), currentValue*b)
+            or foundResult(result, copy.deepcopy(remaining_numbers), currentValue+b))
 
 
 main()
