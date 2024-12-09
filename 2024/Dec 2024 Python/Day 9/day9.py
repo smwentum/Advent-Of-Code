@@ -7,7 +7,7 @@ def part_one(filename):
 
     with open(file=filename, encoding="utf8") as f:
         line = f.readline()
-        print(line)
+        # print(line)
         decompated = []
         index = 0
         isFreeSpace = False
@@ -38,6 +38,7 @@ def part_one(filename):
                 right -= 1
         # print(decompated)
         print("Day 9 part One:", getCheckSum(decompated))
+        # 6334393041104 -too low
 
 
 def getCheckSum(decompated):
