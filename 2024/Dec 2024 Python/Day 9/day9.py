@@ -37,7 +37,10 @@ def part_one(filename):
                 left += 1
                 right -= 1
         # print(decompated)
-        print("Day 9 part One:", getCheckSum(decompated))
+
+        s = "".join([str(x) for x in decompated if x > -1])
+        print(s)
+        print("Day 9 part One:", getCheckSum(s))
         # 6334393041104 -too low
 
 
@@ -46,7 +49,7 @@ def getCheckSum(decompated):
     for i, val in enumerate(decompated):
         # print(val, i)
         if val != -1:
-            s += i*val
+            s += i*int(val)
 
         else:
             break
