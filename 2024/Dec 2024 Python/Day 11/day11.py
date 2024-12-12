@@ -3,6 +3,8 @@ def main():
     part_one(fileName)
     fileName = "../textfiles/day11final.txt"
     part_two(fileName)
+    fileName = "../textfiles/day11final.txt"
+    part_three(fileName)
 
 
 def part_one(fileName):
@@ -25,6 +27,26 @@ def part_two(fileName):
                 d[x] += 1
         # print(d)
         for _ in range(75):
+            d = blink1(d)
+        s = 0
+        # print(d)
+        for k, v in d.items():
+            s += v
+    # print(line)
+    print("Day 11 part two:", s)
+
+
+def part_three(fileName):
+    with open(file=fileName, encoding="utf8") as f:
+        line = [int(x) for x in f.readline().split()]
+        d = {}
+        for x in line:
+            if x not in d:
+                d[x] = 1
+            else:
+                d[x] += 1
+        # print(d)
+        for _ in range(1000):
             d = blink1(d)
         s = 0
         # print(d)
