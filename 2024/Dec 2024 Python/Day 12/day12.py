@@ -1,6 +1,6 @@
 def main():
 
-    file_name = "../textfiles/day12test1.txt"
+    file_name = "../textfiles/day12final.txt"
     part_one(file_name)
 
 
@@ -17,7 +17,25 @@ def part_one(file_name):
                     lst, st = explore_all_connected_points(grid, i, j, st)
                     groups_of_plants[group_of_plants_count] = lst
                     group_of_plants_count += 1
-        print(groups_of_plants)
+        #print(groups_of_plants)
+        s = 0
+        for i,value in groups_of_plants.items():
+            area = len(value)
+            perimeter = getPerimeter(value)
+            #print(i,area,perimeter)
+            s+= area*perimeter
+        print("Day 12 part 1",s )
+
+def getPerimeter(lst):
+    st = set(lst)
+    dir = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    cnt =0
+    for d in dir:
+        for s in st:
+            if  (s[0]+d[0],s[1]+d[1])not in st:
+                cnt+=1
+    return cnt
+
 
 
 def explore_all_connected_points(grid, i, j, st):
@@ -29,13 +47,14 @@ def explore_all_connected_points(grid, i, j, st):
     cols = len(grid[0])
     while len(que) > 0:
         current = que.pop()
-        st.add((current[0], current[1]))
-        lst.append((current[0], current[1]))
-        neigbors = get_valid_neighbors(current[0], current[1], rows, cols)
-        print("neigbors", neigbors)
-        for neighbor in neigbors:
-            if neighbor not in st and grid[neighbor[0]][neighbor[1]] == vegType:
-                que.append(neighbor)
+        if current not in st:
+            st.add((current[0], current[1]))
+            lst.append((current[0], current[1]))
+            neigbors = get_valid_neighbors(current[0], current[1], rows, cols)
+            #print("neigbors", neigbors)
+            for neighbor in neigbors:
+                if neighbor not in st and grid[neighbor[0]][neighbor[1]] == vegType:
+                    que.append(neighbor)
     return (lst, st)
 
 
