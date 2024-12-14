@@ -80,18 +80,34 @@ def main():
     rows = 103
     cols = 101
     data = Data(fileName=fileName, rows1=rows, cols1=cols)
-    
+    for secs in range(74, 10000, 101):
+        d = data.getCurrentPostionOfRobotsAfterSeconds(secs=secs)
+        # if isWorthPrinting(d):
+        printGrid(d=d, rows=rows, cols=cols, secs=secs)
 
 
-def printGrid(d, rows, cols):
+def isWorthPrinting(d):
+    cnt = 0
+    for i, _ in d.items():
+
+        if i[0] == 1:
+            cnt += 1
+    print(cnt)
+    return cnt > 9
+
+
+def printGrid(d, rows, cols, secs):
     lines = [["."]*cols]*rows
-    for i, _ in enumerate(lines):
-        for j, _ in enumerate(lines[i]):
-            if (i, j) not in d:
-                print(lines[i][j], end=" ")
-            else:
-                print(d[(i, j)], end=" ")
-        print("\n")
+
+    with open("Day14Out12.txt", "a") as file:
+        file.write(f"\n\n After -{secs}seconds\n")
+        for i, _ in enumerate(lines):
+            for j, _ in enumerate(lines[i]):
+                if (i, j) not in d:
+                    file.write(lines[i][j])
+                else:
+                    file.write(str(d[(i, j)]))
+            file.write("\n")
 
 
 main()
