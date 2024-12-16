@@ -1,6 +1,16 @@
+from collections import deque
+
+
 def main():
 
+    file_name = "../textfiles/day16test.txt"
+    print("First Test")
+    part_one(file_name)
     file_name = "../textfiles/day16test1.txt"
+    print("Second Test")
+    part_one(file_name)
+    print("Final")
+    file_name = "../textfiles/day16final.txt"
     part_one(file_name)
 
 
@@ -9,19 +19,17 @@ def part_one(file_name):
         grid = f.read().splitlines()
         startX = 0
         startY = 0
-        rows = len(grid)
-        cols = len(grid[0])  # assuming rectangular grid
-
         for i, _ in enumerate(grid):
             for j, _ in enumerate(grid[i]):
                 if grid[i][j] == "S":
-                    print(i, j)
+                    # print(i, j)
                     startX = i
                     startY = j
-                    break
+                    # break
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        min_path_cost = get_min_path_cost(grid, startX, startY, directions, 1)
+        min_path_cost = get_min_path_cost(grid, startX, startY, directions, 0)
         print("Day 16 part one:", min_path_cost)
+        # 135588 too high
 
 
 def get_min_path_cost(grid, currX, currY, directions, currentDirection):
@@ -30,40 +38,44 @@ def get_min_path_cost(grid, currX, currY, directions, currentDirection):
 
     max_value = 10**300
     cost = max_value
-    que = [(currX, currY, currentDirection, 0)]
+    que = deque([(currX, currY, currentDirection, 0)])
+
     while len(que) > 0:
-        current = que.pop()
+        current = que.popleft()
         if ((current[0], current[1], current[2]) not in d
-                or d[(current[0], current[1], current[2])] > current[3]):
+                or (d[(current[0], current[1], current[2])] >= current[3]
+                    and d[(current[0], current[1], current[2])] != max_value
+                    )):
 
             if grid[current[0]][current[1]] == "#":
-                d[current[0], current[1], 0] = max_value
-                d[current[0], current[1], 1] = max_value
-                d[current[0], current[1], 2] = max_value
-                d[current[0], current[1], 3] = max_value
+                d[current[0], current[1], current[2]] = max_value
+                # d[current[0], current[1], 1] = max_value
+                # d[current[0], current[1], 2] = max_value
+                # d[current[0], current[1], 3] = max_value
 
             elif grid[current[0]][current[1]] == "E":
-                print(current[3])
+                # if current[3] < cost:
+                # print(current[3])
                 cost = min(cost, current[3])
             else:  # grid[current[0]][current[1]] == '.' || :
                 # go in current direction
                 que.append((current[0]+directions[current[2]][0],
-                            current[1] + directions[current[2]][1],
+                            current[1]+directions[current[2]][1],
                             current[2],
                             1+current[3]))
 
                 que.append((current[0], current[1],
-                           (current[2]+1) % 4, 1000+current[3]))
+                           ((current[2]+1) % 4), 1000+current[3]))
                 que.append((current[0], current[1],
-                           (current[2]+3) % 4, 1000+current[3]))
+                           ((current[2]+3) % 4), 1000+current[3]))
                 que.append((current[0], current[1],
-                           (current[2]+2) % 4, 1000+current[3]))
+                           ((current[2]+2) % 4), 1000+current[3]))
 
                 d[(current[0], current[1], current[2])] = current[3]
                 # print(cost)
-    for k, v in d.items():
-        if (v != max_value):
-            print(k, v)
+    # for k, v in d.items():
+    #     if (v != max_value):
+    #         print(k, v)
     return cost
 
 
