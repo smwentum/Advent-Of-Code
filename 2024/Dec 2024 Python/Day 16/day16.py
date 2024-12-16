@@ -71,7 +71,7 @@ def part_two(file_name):
             grid, stopX, stopY, directions, 3, startX, startY)
 
         # print(d_end)
-        print("min path cost:", min_path_cost2)
+        # print("min path cost:", min_path_cost2)
         for i, _ in enumerate(grid):
             for j, _ in enumerate(grid[i]):
                 if grid[i][j] == ".":
