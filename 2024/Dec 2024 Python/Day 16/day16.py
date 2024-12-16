@@ -3,12 +3,12 @@ from collections import deque
 
 def main():
 
-    file_name = "../textfiles/day16test.txt"
+    # file_name = "../textfiles/day16test.txt"
     # file_name = "../textfiles/day16test1.txt"
     # print("Second Test")
     # part_one(file_name)
     # print("Final")
-    # file_name = "../textfiles/day16final.txt"
+    file_name = "../textfiles/day16final.txt"
     part_one(file_name)
     part_two(file_name=file_name)
 
@@ -27,7 +27,7 @@ def part_one(file_name):
                     # break
 
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        min_path_cost, _ = get_min_path_cost(
+        min_path_cost = get_min_path_cost(
             grid, startX, startY, directions, 0)
         print("Day 16 part one:", min_path_cost)
         return min_path_cost
@@ -77,23 +77,23 @@ def part_two(file_name):
                 if grid[i][j] == ".":
                     for k in range(4):
                         if ((i, j, k) in d_start
-                            and (i, j, k) in d_end1
-                                and d_start[(i, j, k)] + d_end1[(i, j, k)] <= min_path_cost2):
+                            and (i, j, ((k+2) % 4)) in d_end1
+                                and d_start[(i, j, k)] + d_end1[(i, j, ((k+2) % 4))] == min_path_cost2):
                             st.add((i, j))
 
                         if ((i, j, k) in d_start
-                            and (i, j, k) in d_end2
-                                and d_start[(i, j, k)] + d_end2[(i, j, k)] <= min_path_cost2):
+                            and (i, j, ((k+2) % 4)) in d_end2
+                                and d_start[(i, j, k)] + d_end2[(i, j, ((k+2) % 4))] == min_path_cost2):
                             st.add((i, j))
 
                         if ((i, j, k) in d_start
-                            and (i, j, k) in d_end3
-                                and d_start[(i, j, k)] + d_end3[(i, j, k)] <= min_path_cost2):
+                            and (i, j, ((k+2) % 4)) in d_end3
+                                and d_start[(i, j, k)] + d_end3[(i, j, ((k+2) % 4))] == min_path_cost2):
                             st.add((i, j))
 
                         if ((i, j, k) in d_start
-                            and (i, j, k) in d_end4
-                                and d_start[(i, j, k)] + d_end4[(i, j, k)] <= min_path_cost2):
+                            and (i, j, ((k+2) % 4)) in d_end4
+                                and d_start[(i, j, k)] + d_end4[(i, j, ((k+2) % 4))] == min_path_cost2):
                             st.add((i, j))
 
                     # startToPoint = get_min_path_cost_pt2(
@@ -169,6 +169,8 @@ def get_min_path_cost3(grid, currX, currY, directions, currentDirection):
     max_value = 10**300
     cost = max_value
     que = deque([(currX, currY, currentDirection, 0)])
+
+    d2 = dict()
 
     while len(que) > 0:
         current = que.popleft()
