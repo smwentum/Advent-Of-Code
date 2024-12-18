@@ -52,6 +52,7 @@ def part_two(file_name):
             s+= area*perimeter
         print("Day 12 part 2",s )
 
+
 def getPerimeter(lst):
     st = set(lst)
     dir = [(1, 0), (-1, 0), (0, 1), (0, -1)]
