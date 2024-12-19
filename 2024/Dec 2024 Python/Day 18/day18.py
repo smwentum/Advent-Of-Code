@@ -7,6 +7,8 @@ def main():
     #part_one(file_name,7,7,12)
     file_name = "../textfiles/day18final.txt"
     part_one(file_name,71,71,1024)
+    file_name = "../textfiles/day18final.txt"
+    part_two(file_name,71,71)
 
 
 
@@ -21,10 +23,34 @@ def part_one(file_name, rows,cols,stop):
                 #print(x,y)
                 grid[y][x] = "#"
         #printGrid(grid)
-        part_oneA(grid,rows)
+        part_oneA(grid,rows,stop)
+
+def part_two(file_name, rows,cols):
+    with open(file=file_name,encoding="utf8") as f:
+        lines = f.read().splitlines()
+        low =0
+        high = len(lines)-1
+        #while high > low:
+        grid = [["."]*cols for _ in range(rows)]
+        mid =2991 # int((high +low)/2)
+        for i, line in enumerate(lines):
+            if i <mid:
+                x,y = [int(z) for z in line.split(",")]
+                grid[y][x] = "#"
+        value =   part_oneA(grid,rows,mid)
+        print(value)
+        if (value  !=  10**300):
+            low = int((high +mid)/2)+1
+            print(mid)
+        else:
+            high =int( (low +mid)/2)-1
+        grid = [["."]*cols for _ in range(rows)]
 
 
-def part_oneA(grid,rows):
+
+
+
+def part_oneA(grid,rows,stop):
 
         startX = 0
         startY = 0
@@ -39,7 +65,8 @@ def part_oneA(grid,rows):
             get_min_path_cost(
             grid, startX, startY, directions, 3,rows))
 
-        print("Day 18 part one:", min_path_cost)
+
+        print("Day 18 part two:", stop, "cost:", min_path_cost)
         return min_path_cost
         # 135588 too high
 
@@ -98,72 +125,6 @@ def get_min_path_cost(grid, currX, currY, directions, currentDirection,rows):
 
 
 
-        #printGrid(grid)
-
-# def Dijkstra(grid, source,rows,cols):
-#     dist = dict()
-#     prev = dict()
-#     dir = [(1,0),(-1,0),(0,1)(0,-1)]
-#     for r in len(rows):
-#         for c in len(cols):
-#             dist[(r,c)] = 2 ** 100
-#             prev[(r,c)] = 2** 100
-#     dist[source] = 0
-#     q = heapq.heapify([source[0],source[1],0])
-
-#     while len(q) > 0 :
-#         current = heapq.heappop(q)
-
-
-# def dijkstra(self, start_vertex_data,rows):
-#     start_vertex = self.vertex_data.index(start_vertex_data)
-#     distances = [float('inf')] * self.size
-#     for i in range(rows):
-#         for j in range(rows):
-#              j
-#     distances[start_vertex] = 0
-#     visited = [False] * self.size
-
-#     for _ in range(self.size):
-#         min_distance = float('inf')
-#         u = None
-#         for i in range(self.size):
-#             if not visited[i] and distances[i] < min_distance:
-#                 min_distance = distances[i]
-#                 u = i
-
-#         if u is None:
-#             break
-
-#         visited[u] = True
-
-#         for v in range(self.size):
-#             if self.adj_matrix[u][v] != 0 and not visited[v]:
-#                 alt = distances[u] + self.adj_matrix[u][v]
-#                 if alt < distances[v]:
-#                     distances[v] = alt
-
-#     return distances
-
-#  1  function Dijkstra(Graph, source):
-#  2
-#  3      for each vertex v in Graph.Vertices:
-#  4          dist[v] ← INFINITY
-#  5          prev[v] ← UNDEFINED
-#  6          add v to Q
-#  7      dist[source] ← 0
-#  8
-#  9      while Q is not empty:
-# 10          u ← vertex in Q with minimum dist[u]
-# 11          remove u from Q
-# 12
-# 13          for each neighbor v of u still in Q:
-# 14              alt ← dist[u] + Graph.Edges(u, v)
-# 15              if alt < dist[v]:
-# 16                  dist[v] ← alt
-# 17                  prev[v] ← u
-# 18
-# 19      return dist[], prev[]
 
 def printGrid(grid):
     for i,_ in enumerate(grid):
