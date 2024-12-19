@@ -2,6 +2,8 @@ def main():
 
     file_name = "../textfiles/day19final.txt"
     part_one(file_name)
+    file_name = "../textfiles/day19test.txt"
+    part_two(file_name)
 
 
 def part_one(file_name):
@@ -22,6 +24,28 @@ def part_one(file_name):
                     cnt += 1
                     # print(line)
         print("Day 19 part 1:", cnt)
+
+
+def part_two(file_name):
+    with open(file=file_name, encoding="utf8") as f:
+        lines = f.read().splitlines()
+        towelPatterns = [x.strip() for x in lines[0].split(",")]
+        # print(lines)
+        # print(towelPatterns)
+        desgin = dict()
+        desgin[""] = True
+        for towelPattern in towelPatterns:
+            desgin[towelPattern] = True
+
+        cnt = 0
+        for i, line in enumerate(lines):
+            if i > 1:
+                if is_possible(design=desgin, towel=line):
+                    cnt += 1
+                    # print(line)
+        print(desgin)
+        
+        print("Day 19 part 2:", cnt)
 
 
 def is_possible(design: dict, towel: str):
