@@ -29,7 +29,8 @@ def part_one(file_name):
                     endY = j
         maxTimeOfRace = getShortestPath(
             racetrack, (startX, startY), (endX, endY), (rows, cols))
-        cheats = getCheats(racetrack, (rows, cols))
+        cheats = getCheats(racetrack, (rows, cols),
+                           (startX, startY), maxTimeOfRace)
         timesSaved = dict()
 
         # print(maxTimeOfRace)
@@ -42,16 +43,16 @@ def part_one(file_name):
                 timesSaved[timeSaved] = 0
             timesSaved[timeSaved] += 1
             racetrack[cheat[0]][cheat[1]] = '#'
-        cheats = getCheats(racetrack, (rows, cols))
+
         s = 0
         for k, v in timesSaved.items():
             if k >= 100:
                 s += v
         print("day 20 part one:", s)
-        #1264 too low
+        # 1264 too low
 
 
-def getCheats(racetrack, dim):
+def getCheats(racetrack, dim, start, mindistance):
     cheats = set()
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
@@ -62,8 +63,9 @@ def getCheats(racetrack, dim):
                     for d in directions:
                         neighbor = (i+d[0], j+d[1])
                         if isVaildPoint(neighbor, dim) and racetrack[neighbor[0]][neighbor[1]] == ".":
-                            cheats.add((i, j))
-                            break
+                            if abs(i-start[0]) + abs(j-start[1]) < mindistance:
+                                cheats.add((i, j))
+                                break
 
     return cheats
 
