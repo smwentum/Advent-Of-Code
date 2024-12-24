@@ -38,7 +38,7 @@ class FunctionToSolve:
 
 def main():
 
-    file_name = "../textfiles/day24test.txt"
+    file_name = "../textfiles/day24final.txt"
     part_one(file_name)
 
 
@@ -83,11 +83,11 @@ def part_one(file_name):
                 # i still don't know how to solve
                 notEvalutedFunctions.append(current_function_to_solve)
 
-        sortedkeys = sorted(bits, key=str.lower)
+        # sortedkeys = sorted(bits, key=str.lower)
         # print(sortedkeys)
         s1 = ""
         i = 0
-        print("z"+str(i).rjust(2, '0'))
+        # print("z"+str(i).rjust(2, '0'))
         while "z"+str(i).rjust(2, '0') in bits:
             s1 = str(bits["z"+str(i).rjust(2, '0')]) + s1
             i += 1
