@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "tmpl": "html",
+    "page.tmpl": "html",
+    "ostream": "cpp",
+    "iostream": "cpp"
+  }
+}
