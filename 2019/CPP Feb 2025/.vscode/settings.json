@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "tmpl": "html",
+    "page.tmpl": "html",
+    "xstring": "cpp"
+  }
+}
