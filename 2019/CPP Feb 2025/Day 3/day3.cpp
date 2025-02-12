@@ -1,5 +1,8 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <map>
+#include <set>
 #include <sstream>
 #include <vector>
 
@@ -7,15 +10,16 @@
 
 int main()
 {
-    std::string fileName{"../textFiles/day3final.txt"};
+    std::string fileName{ "../textFiles/day3test1.txt" };
     partOne(fileName);
 }
 
-std::vector<std::string> getDirections(std::string fileName)
+std::vector<std::vector<std::string>> getDirections(std::string fileName)
 {
     std::ifstream file(fileName);
-    std::string direction{};
-    std::vector<std::string> directions{};
+    std::vector<std::vector<std::string>> lines{};
+    std::vector<std::vector<std::string>> directions{};
+    std::vector<std::string> direction{};
     std::string tok{};
 
     if (file.is_open())
@@ -23,16 +27,21 @@ std::vector<std::string> getDirections(std::string fileName)
         std::string line;
         while (std::getline(file, line))
         {
-            direction += line;
+            direction.push_back(line);
         }
 
         file.close();
-        std::cout << direction << std::endl;
-        std::istringstream ss(direction);
-        while (std::getline(ss, tok, ','))
+        // std::cout << direction << std::endl;
+        for (auto d : direction)
         {
-            std::cout << tok << std::endl;
-            directions.push_back(tok);
+            std::istringstream ss(d);
+            std::vector<std::string> currentLine;
+            while (std::getline(ss, tok, ','))
+            {
+                // std::cout << tok << std::endl;
+                currentLine.push_back(tok);
+            }
+            directions.push_back(currentLine);
         }
     }
     else
@@ -45,5 +54,74 @@ std::vector<std::string> getDirections(std::string fileName)
 
 void partOne(std::string fileName)
 {
-    std::vector<std::string> directions =  getDirections(fileName);
+    std::vector<std::vector<std::string>> directions = getDirections(fileName);
+    std::set<std::tuple<int, int>> firstCable{ getAllPoints(directions[0]) };
+    std::set<std::tuple<int, int>> secondCable{ getAllPoints(directions[1]) };
+    std::set<std::tuple<int, int>> intersectingPoint{};
+
+    std::set_intersection(firstCable.begin(), firstCable.end(),
+        secondCable.begin(), secondCable.end(),
+        std::inserter(intersectingPoint, intersectingPoint.begin()));
+
+    int minDist = INT_MAX;
+
+    for (auto ip : intersectingPoint)
+    {
+        std::cout << std::get<0>(ip) << "," << std::get<1>(ip) << std::endl;
+        int newVal{ std::abs(std::get<0>(ip)) + std::abs(std::get<1>(ip)) };
+        if (newVal < minDist && !(std::get<0>(ip) == 0 && std::get<1>(ip) == 0))
+        {
+            minDist = newVal;
+        }
+    }
+    std::cout << "Day 3 part one: " << minDist << std::endl;
+}
+
+std::set<std::tuple<int, int>> getAllPoints(std::vector<std::string> directions)
+{
+    int startX = 0;
+    int startY = 0;
+    int steps{ 0 };
+    std::set<std::tuple<int, int>> dictLeftRight{};
+
+    for (std::string dir : directions)
+    {
+        steps = std::stoi(dir.substr(1));
+        switch (dir[0])
+        {
+        case 'R':
+            // steps = std::stoi(dir.substr(1));
+            for (int i = 1; i <= steps; i++)
+            {
+                dictLeftRight.insert(std::tuple<int, int>(startX + i, startY));
+            }
+            startX += steps;
+            break;
+        case 'L':
+            // steps = std::stoi(dir.substr(1));
+            for (int i = 1; i <= steps; i++)
+            {
+                dictLeftRight.insert(std::tuple<int, int>(startX - i, startY));
+            }
+            startX -= steps;
+            break;
+        case 'U':
+            // steps = std::stoi(dir.substr(1));
+            for (int i = 1; i <= steps; i++)
+            {
+                dictLeftRight.insert(std::tuple<int, int>(startX, startY - i));
+            }
+            startY -= steps;
+            break;
+        case 'D':
+            // steps = std::stoi(dir.substr(1));
+            for (int i = 1; i <= steps; i++)
+            {
+                dictLeftRight.insert(std::tuple<int, int>(startX, startY + i));
+            }
+            startY += steps;
+            break;
+        }
+    }
+    return dictLeftRight;
 }

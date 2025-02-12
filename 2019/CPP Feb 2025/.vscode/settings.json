@@ -53,6 +53,11 @@
     "xmemory": "cpp",
     "xtr1common": "cpp",
     "xutility": "cpp",
-    "sstream": "cpp"
+    "sstream": "cpp",
+    "map": "cpp",
+    "xtree": "cpp",
+    "algorithm": "cpp",
+    "optional": "cpp",
+    "set": "cpp"
   }
 }
