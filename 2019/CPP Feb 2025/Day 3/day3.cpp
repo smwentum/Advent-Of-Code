@@ -140,6 +140,8 @@ void partTwo(std::string fileName)
 
     for (auto ip : intersectingPoint)
     {
+        std::cout << "distance for first point " << firstCablePt2[ip] << std::endl;
+        std::cout << "distance for second point " << secondCablePt2[ip] << std::endl;
 
         int newVal{ secondCablePt2[ip] + firstCablePt2[ip] };
         if (newVal < minDist && !(std::get<0>(ip) == 0 && std::get<1>(ip) == 0))
