@@ -12,7 +12,7 @@ int main()
 {
     std::string fileName{ "../textFiles/day3final.txt" };
     partOne(fileName);
-    std::string fileNamePt2{ "../textFiles/day3test1.txt" };
+    std::string fileNamePt2{ "../textFiles/day3final.txt" };
     partTwo(fileNamePt2);
 }
 
@@ -140,8 +140,11 @@ void partTwo(std::string fileName)
 
     for (auto ip : intersectingPoint)
     {
-        std::cout << "distance for first point " << firstCablePt2[ip] << std::endl;
-        std::cout << "distance for second point " << secondCablePt2[ip] << std::endl;
+        // std::cout << std::get<0>(ip) << "," << std::get<1>(ip) << std::endl;
+        // std::cout << firstCablePt2[ip] << std::endl;
+        // std::cout << "distance for first point " << firstCablePt2[ip] << std::endl;
+        // std::cout << "distance for second point " << secondCablePt2[ip] << std::endl;
+
 
         int newVal{ secondCablePt2[ip] + firstCablePt2[ip] };
         if (newVal < minDist && !(std::get<0>(ip) == 0 && std::get<1>(ip) == 0))
@@ -194,9 +197,9 @@ std::map<std::tuple<int, int>, int> getAllPointsPt2(std::vector<std::string> dir
             for (int i = 1; i <= steps; i++)
             {
                 //dictLeftRight.insert(std::tuple<int, int, int>(startX, startY - i, count));
-                if (dictLeftRight.find(std::tuple<int, int>(startX, startY - 1)) == dictLeftRight.end())
+                if (dictLeftRight.find(std::tuple<int, int>(startX, startY - i)) == dictLeftRight.end())
                 {
-                    dictLeftRight.insert(std::pair<std::tuple<int, int>, int>(std::tuple<int, int>(startX, startY - 1), count));
+                    dictLeftRight.insert(std::pair<std::tuple<int, int>, int>(std::tuple<int, int>(startX, startY - i), count));
                 }
                 count++;
             }
@@ -205,7 +208,7 @@ std::map<std::tuple<int, int>, int> getAllPointsPt2(std::vector<std::string> dir
         case 'D':
             for (int i = 1; i <= steps; i++)
             {
-                if (dictLeftRight.find(std::tuple<int, int>(startX, startY + 1)) == dictLeftRight.end())
+                if (dictLeftRight.find(std::tuple<int, int>(startX, startY + i)) == dictLeftRight.end())
                 {
                     dictLeftRight.insert(std::pair<std::tuple<int, int>, int>(std::tuple<int, int>(startX, startY + i), count));
                 }
