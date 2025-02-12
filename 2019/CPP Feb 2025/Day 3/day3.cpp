@@ -10,14 +10,13 @@
 
 int main()
 {
-    std::string fileName{ "../textFiles/day3test1.txt" };
+    std::string fileName{ "../textFiles/day3final.txt" };
     partOne(fileName);
 }
 
 std::vector<std::vector<std::string>> getDirections(std::string fileName)
 {
     std::ifstream file(fileName);
-    std::vector<std::vector<std::string>> lines{};
     std::vector<std::vector<std::string>> directions{};
     std::vector<std::string> direction{};
     std::string tok{};
@@ -67,7 +66,6 @@ void partOne(std::string fileName)
 
     for (auto ip : intersectingPoint)
     {
-        std::cout << std::get<0>(ip) << "," << std::get<1>(ip) << std::endl;
         int newVal{ std::abs(std::get<0>(ip)) + std::abs(std::get<1>(ip)) };
         if (newVal < minDist && !(std::get<0>(ip) == 0 && std::get<1>(ip) == 0))
         {
@@ -90,7 +88,6 @@ std::set<std::tuple<int, int>> getAllPoints(std::vector<std::string> directions)
         switch (dir[0])
         {
         case 'R':
-            // steps = std::stoi(dir.substr(1));
             for (int i = 1; i <= steps; i++)
             {
                 dictLeftRight.insert(std::tuple<int, int>(startX + i, startY));
@@ -98,7 +95,6 @@ std::set<std::tuple<int, int>> getAllPoints(std::vector<std::string> directions)
             startX += steps;
             break;
         case 'L':
-            // steps = std::stoi(dir.substr(1));
             for (int i = 1; i <= steps; i++)
             {
                 dictLeftRight.insert(std::tuple<int, int>(startX - i, startY));
@@ -106,7 +102,7 @@ std::set<std::tuple<int, int>> getAllPoints(std::vector<std::string> directions)
             startX -= steps;
             break;
         case 'U':
-            // steps = std::stoi(dir.substr(1));
+
             for (int i = 1; i <= steps; i++)
             {
                 dictLeftRight.insert(std::tuple<int, int>(startX, startY - i));
@@ -114,7 +110,6 @@ std::set<std::tuple<int, int>> getAllPoints(std::vector<std::string> directions)
             startY -= steps;
             break;
         case 'D':
-            // steps = std::stoi(dir.substr(1));
             for (int i = 1; i <= steps; i++)
             {
                 dictLeftRight.insert(std::tuple<int, int>(startX, startY + i));
