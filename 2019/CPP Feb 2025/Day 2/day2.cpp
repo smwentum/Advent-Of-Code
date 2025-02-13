@@ -76,19 +76,23 @@ void partTwo(std::string fileName)
             }
         }
 
-        int noun{0};
-        int verb{0};
-        for (; noun <= 100; noun++)
+        for (int noun = 0; noun < 100; noun++)
         {
-            for (; verb <= 100; verb++)
+            for (int verb = 0; verb < 100; verb++)
             {
-                if (getAnswerForPartTwo(codes, noun, verb))
+
+                std::vector newCodes = codes;
+                // getAnswerForPartTwo(newCodes, 12, 12);
+                if (getAnswerForPartTwo(newCodes, noun, verb))
                 {
-                    std::cout << "Day 2 part 2: " << noun * 100 + verb << std::endl;
+                    std::cout << "Day 2 part two: " << noun * 100 + verb << std::endl;
                     return;
                 }
             }
         }
+        // std::cout << "noun: " << noun << std::endl;
+        // std::cout << "verb: " << verb << std::endl;
+        std::cout << "Day 2 part 2: " << "No answer found" << std::endl;
     }
     else
     {
@@ -99,6 +103,8 @@ void partTwo(std::string fileName)
 bool getAnswerForPartTwo(std::vector<int> codes, int noun, int verb)
 {
     int currentPos{0};
+    codes[1] = noun;
+    codes[2] = verb;
     while (codes[currentPos] != 99)
     {
         int a{codes[codes[currentPos + 1]]};

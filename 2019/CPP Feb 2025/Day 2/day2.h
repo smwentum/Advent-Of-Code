@@ -5,6 +5,6 @@
 
 void partOne(std::string fileName);
 void partTwo(std::string fileName);
-getAnswerForPartTwo(std::vector<int> codes, int noun, int verb);
+bool getAnswerForPartTwo(std::vector<int> codes, int noun, int verb);
 
 #endif
