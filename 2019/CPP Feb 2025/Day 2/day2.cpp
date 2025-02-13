@@ -31,6 +31,7 @@ void partOne(std::string fileName)
         }
         int currentPos{0};
         codes[1] = 12;
+        codes[2] = 2;
         while (codes[currentPos] != 99)
         {
             int a{codes[codes[currentPos + 1]]};
