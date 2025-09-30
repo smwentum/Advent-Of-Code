@@ -26,5 +26,8 @@
     <Text Include="Day1a.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="day1c.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
