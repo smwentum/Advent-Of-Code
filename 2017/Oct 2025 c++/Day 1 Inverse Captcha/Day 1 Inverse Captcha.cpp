@@ -3,20 +3,20 @@
 #include <sstream>
 
 
-void partOne();
-void partTwo();
+void Day1PartOne();
+void DayOnePartTwo();
 
 int main()
 {
 
 
-    partOne();
-    partTwo();
+    Day1PartOne();
+    DayOnePartTwo();
 
     
 }
 
-void partOne()
+void Day1PartOne()
 {
     int sum = 0;
     std::ifstream inFIle;
@@ -39,7 +39,7 @@ void partOne()
 
 
 
-void partTwo()
+void DayOnePartTwo()
 {
     int sum = 0;
     std::ifstream inFIle;
