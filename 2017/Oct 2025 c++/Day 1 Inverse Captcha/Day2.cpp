@@ -7,6 +7,28 @@
 
 #include "Day2.h"
 
+
+
+void Day2PartOne()
+{
+	std::ifstream inFile;
+	inFile.open("Day2.txt");
+	std::stringstream strStream;
+	strStream << inFile.rdbuf();
+	std::string line;
+	int sum = 0;
+	while (std::getline(strStream, line))
+	{
+		std::vector<int> nums = splitStringIntoVectorOfints(line);
+		std::sort(nums.begin(), nums.end());
+		sum += nums[nums.size() - 1] - nums[0];
+	}
+	std::cout << "Day 2 part 1: " << sum << std::endl;
+
+}
+
+
+
 void Day2PartTwo()
 {
 	std::ifstream inFile;
@@ -31,7 +53,7 @@ void Day2PartTwo()
 			}
 		}
 	}
-	std::cout << sum << std::endl;
+	std::cout <<"Day 2 part 2: " << sum << std::endl;
 
 }
 

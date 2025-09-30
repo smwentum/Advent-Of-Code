@@ -14,6 +14,7 @@ int main()
 
     Day1PartOne();
     Day1PartTwo();
+    Day2PartOne();
     Day2PartTwo();
     
 }
