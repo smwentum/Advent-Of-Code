@@ -4,18 +4,19 @@
 
 
 void Day1PartOne();
-void DayOnePartTwo();
+void Day1PartTwo();
 
 int main()
 {
 
 
     Day1PartOne();
-    DayOnePartTwo();
+    Day1PartTwo();
 
     
 }
 
+#pragma region Day 1
 void Day1PartOne()
 {
     int sum = 0;
@@ -39,7 +40,7 @@ void Day1PartOne()
 
 
 
-void DayOnePartTwo()
+void Day1PartTwo()
 {
     int sum = 0;
     std::ifstream inFIle;
@@ -48,8 +49,8 @@ void DayOnePartTwo()
     strStream << inFIle.rdbuf();
     std::string str = strStream.str() + strStream.str();
     //std::cout << str;
-    int strLen = str.length()/4;
-    for (int i = 0; i < str.length()/2; i++)
+    int strLen = str.length() / 4;
+    for (int i = 0; i < str.length() / 2; i++)
     {
         if (str[i] == str[i + strLen])
         {
@@ -60,3 +61,11 @@ void DayOnePartTwo()
     std::cout << "Day 1 Part 2: " << sum << std::endl;
 
 }
+
+#pragma endregion
+
+#pragma region Day 2
+
+
+
+#pragma endregion
