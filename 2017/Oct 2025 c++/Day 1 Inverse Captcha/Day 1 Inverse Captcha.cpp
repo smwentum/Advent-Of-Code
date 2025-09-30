@@ -3,10 +3,9 @@
 #include <sstream>
 
 #include "Day1.h"
+#include "Day2.h"
 
 
-
-void Day2PartOne();
 
 
 int main()
@@ -15,17 +14,10 @@ int main()
 
     Day1PartOne();
     Day1PartTwo();
-
+    Day2PartTwo();
     
 }
 
 
 
-#pragma region Day 2
-void Day2PartOne()
-{
 
-}
-
-
-#pragma endregion
