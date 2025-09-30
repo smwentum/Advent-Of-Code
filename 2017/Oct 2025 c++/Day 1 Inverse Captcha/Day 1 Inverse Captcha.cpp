@@ -2,9 +2,12 @@
 #include <fstream>
 #include <sstream>
 
+#include "Day1.h"
 
-void Day1PartOne();
-void Day1PartTwo();
+
+
+void Day2PartOne();
+
 
 int main()
 {
@@ -16,56 +19,13 @@ int main()
     
 }
 
-#pragma region Day 1
-void Day1PartOne()
-{
-    int sum = 0;
-    std::ifstream inFIle;
-    inFIle.open("Day1.txt");
-    std::stringstream strStream;
-    strStream << inFIle.rdbuf();
-    std::string str = strStream.str() + strStream.str()[0];
-    //std::cout << str;
-    for (int i = 0; i < str.length() - 1; i++)
-    {
-        if (str[i] == str[i + 1])
-        {
-            sum += (int)(str[i] - '0');
-        }
-    }
 
-    std::cout << "Day 1 Part 1: " << sum << std::endl;
-
-}
-
-
-
-void Day1PartTwo()
-{
-    int sum = 0;
-    std::ifstream inFIle;
-    inFIle.open("Day1.txt");
-    std::stringstream strStream;
-    strStream << inFIle.rdbuf();
-    std::string str = strStream.str() + strStream.str();
-    //std::cout << str;
-    int strLen = str.length() / 4;
-    for (int i = 0; i < str.length() / 2; i++)
-    {
-        if (str[i] == str[i + strLen])
-        {
-            sum += (int)(str[i] - '0');
-        }
-    }
-
-    std::cout << "Day 1 Part 2: " << sum << std::endl;
-
-}
-
-#pragma endregion
 
 #pragma region Day 2
+void Day2PartOne()
+{
 
+}
 
 
 #pragma endregion

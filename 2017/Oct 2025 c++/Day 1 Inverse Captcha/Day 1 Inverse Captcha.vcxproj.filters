@@ -18,6 +18,9 @@
     <ClCompile Include="Day 1 Inverse Captcha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Day1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Day1.txt">
@@ -29,5 +32,10 @@
     <Text Include="day1c.txt">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Day1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

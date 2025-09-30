@@ -124,11 +124,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Day 1 Inverse Captcha.cpp" />
+    <ClCompile Include="Day1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Day1.txt" />
     <Text Include="Day1a.txt" />
     <Text Include="day1c.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Day1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
