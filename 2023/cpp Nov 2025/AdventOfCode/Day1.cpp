@@ -67,7 +67,7 @@ void DayOnePartTwo()
 		int num = first * 10 + last;
 		sum += num;
 	}
-	cout << "Day one Part 1: " << sum << endl;
+	cout << "Day one Part 2: " << sum << endl;
 }
 
 
