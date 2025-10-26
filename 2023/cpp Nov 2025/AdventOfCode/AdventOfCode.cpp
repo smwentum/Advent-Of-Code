@@ -9,5 +9,6 @@ int main()
 {
 	//Day 1
 	DayOnePartOne();
+	DayOnePartTwo();
 }
 

@@ -132,6 +132,7 @@
   <ItemGroup>
     <Text Include="day1.txt" />
     <Text Include="day1a.txt" />
+    <Text Include="day1b.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h" />
