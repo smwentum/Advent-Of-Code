@@ -19,6 +19,24 @@ void Day2PartOne()
 	cout << "Day 2 Part 1: " << sum << endl; 
 }
 
+
+void Day2PartTwo()
+{
+	//parse the file
+	vector<string> lines = GetLinesFromFile();
+	int sum{ 0 };
+	for (auto line : lines)
+	{
+		sum += Part2ReturnIfValid(line);
+	}
+
+	//use a dict to hold colors 
+	//test if its possible
+	//if possible add game number
+	//print result
+	cout << "Day 2 Part 2: " << sum << endl;
+}
+
 vector<string> GetLinesFromFile()
 {
 	ifstream file("Day2.txt");
@@ -80,6 +98,67 @@ int Part1ReturnIfValid(string line)
 	}
 	
 	return gameId; 
+
+}
+
+
+long long  Part2ReturnIfValid(string line)
+{
+	stringstream ss(line);
+
+	string dummy;
+	int gameId{ 0 };
+	ss >> dummy;
+	ss >> gameId;
+	//cout << "Game Id: " << gameId<< endl;
+	ss >> dummy;
+	string gameString;
+	std::map<string, int> dices;
+	while (getline(ss, gameString, ';'))
+	{
+		//std::remove(gameString.begin(), gameString.end(), ' ');
+		//cout << gameString << endl;
+
+		stringstream ss2(gameString);
+		string currentDraw;
+		while (getline(ss2, currentDraw, ','))
+		{
+			stringstream ss3(currentDraw);
+			int numOfDice{ 0 };
+			string dicecolor{ "" };
+			ss3 >> numOfDice;
+			ss3 >> dicecolor;
+			if (dicecolor[dicecolor.length() - 1] == ',')
+			{
+				dicecolor = dicecolor.substr(0, dicecolor.length() - 1);
+			}
+			//cout << "From me: " << numOfDice << " " << dicecolor << endl; 
+			if (dices.find(dicecolor) == dices.end())
+			{
+				dices[dicecolor] = 0;
+			}
+			dices[dicecolor] = std::max(dices[dicecolor], numOfDice);
+		}
+
+	}
+
+	long long prod = 1; 
+	if (dices["red"] > 0)
+	{
+		prod *= dices["red"];
+	}
+	if (dices["blue"] > 0)
+	{
+		prod *= dices["blue"];
+	}
+
+	if (dices["green"] > 0)
+	{
+		prod *= dices["green"];
+	}
+
+
+	return prod;
 
 }
 
