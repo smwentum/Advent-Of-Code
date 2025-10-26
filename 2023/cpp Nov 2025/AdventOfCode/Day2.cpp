@@ -21,7 +21,7 @@ void Day2PartOne()
 
 vector<string> GetLinesFromFile()
 {
-	ifstream file("Day2a.txt");
+	ifstream file("Day2.txt");
 	string str; 
 	vector<string> lst{};
 
