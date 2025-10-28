@@ -7,11 +7,22 @@ void Day3PartOne()
 {
 	//get the input
 	vector<string> lines = getLinesFromFile();
+	//get the numbers
 	for (string line : lines)
 	{
-		cout << line << endl;
+		stringstream ss1(line);
+		string parsedInput;
+		while (getline(ss1, parsedInput, '.'))
+		{
+			if (all_of(parsedInput.begin(), parsedInput.end(), 
+						[](unsigned char c) {
+					return isdigit(c);
+				}) && parsedInput.size() > 0)
+			{
+				cout << parsedInput << endl;
+			}
+		}
 	}
-	//get the numbers
 	//figure out which ones count
 	//return answer
 
