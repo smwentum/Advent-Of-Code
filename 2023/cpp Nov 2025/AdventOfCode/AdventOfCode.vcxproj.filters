@@ -50,6 +50,7 @@
     <Text Include="Day3a.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Day3.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">

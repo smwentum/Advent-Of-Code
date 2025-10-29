@@ -22,7 +22,7 @@ void Day3PartOne()
 				}
 				
 				int currentVal{ PartOneReturnNumberIfValid(lines, row, col, start) };
-				cout << currentVal << endl;
+				//cout << currentVal << endl;
 				sum += currentVal;
 				col += start;
 			}
@@ -75,7 +75,7 @@ bool nextToSymbol(const vector<string>& lines, int row, int col)
 vector<string> getLinesFromFile()
 {
 	vector<string> lines{};
-	ifstream file("Day3a.txt");
+	ifstream file("Day3.txt");
 	string str; 
 	while (std::getline(file, str))
 	{
