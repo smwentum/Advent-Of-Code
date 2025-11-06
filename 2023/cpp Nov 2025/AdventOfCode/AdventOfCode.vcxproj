@@ -126,6 +126,7 @@
     <ClCompile Include="AdventOfCode.cpp" />
     <ClCompile Include="Day1.cpp" />
     <ClCompile Include="Day2.cpp" />
+    <ClCompile Include="Day3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -136,10 +137,13 @@
     <Text Include="day1b.txt" />
     <Text Include="day2.txt" />
     <Text Include="Day2a.txt" />
+    <Text Include="Day3.txt" />
+    <Text Include="Day3a.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h" />
     <ClInclude Include="Day2.h" />
+    <ClInclude Include="Day3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
