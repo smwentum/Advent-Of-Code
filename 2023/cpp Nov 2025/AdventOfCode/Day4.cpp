@@ -9,7 +9,7 @@ void Day4PartOne()
 	long long sum = 0;
 	for (string line : lines)
 	{
-		cout << line << endl;
+		//cout << line << endl;
 		sum += getCountOfWinningNumbers(line);
 	}
 
@@ -48,21 +48,57 @@ string removeFirstPart(string line)
 long long getDay4PartOneAnswerFromLine(string secondPart)
 {
 	long long ans =  0;
-	vector<int> v1{};
-	vector<int> v2{}; 
+	set<long long> v1{};
+	vector<long long> v2{}; 
 	for (const auto& token_range : secondPart | std::views::split('|'))
 	{
 		string word(token_range.begin(), token_range.end());
-		cout << word << endl;
-		
+		//cout << word << endl;
+		if (v1.size() == 0)
+		{
+			for (const auto& token_range11 : word | std::views::split(' '))
+			{
+				string word1(token_range11.begin(), token_range11.end());
+				long long num; 
+				if (isdigit(word1[0]))
+				{
+
+					v1.insert(stoll(word1));
+				}
+				
+			}
+			
+		}
+		else
+		{
+			for (const auto& token_range1 : word | std::views::split(' '))
+			{
+				string word1(token_range1.begin(), token_range1.end());
+				long long num;
+				//cin >> num;
+				if (isdigit(word1[0]))
+				{
+					num = stoll(word1);
+					if (v1.contains(num))
+					{
+						ans += 1;
+					}
+				}
+			}
+
+		}
 	}
-	return ans; 
+	if (ans < 1)
+	{
+		return 0;
+	}
+	return pow(2,ans-1); 
 }
 
 
 vector<string> dayFourGetLinesFromFile()
 {
-	ifstream file("Day4a.txt");
+	ifstream file("Day4.txt");
 	string str;
 	vector<string> lines{};
 	while (getline(file, str))
