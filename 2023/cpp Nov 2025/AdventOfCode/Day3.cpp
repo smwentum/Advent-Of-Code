@@ -64,10 +64,11 @@ void Day3PartTwo()
 	{
 		for (size_t col = 0; col < lines[0].length(); col++)
 		{
+			//lines = getLinesFromFile();
 			if (lines[row][col] =='*')
 			{
 			
-				int currentVal{ returnProductIfAroundStar(lines, row,col)};
+				long long currentVal{ returnProductIfAroundStar(lines, row,col)};
 				//cout << currentVal << endl;
 				sum += currentVal;
 				
@@ -76,63 +77,90 @@ void Day3PartTwo()
 		}
 	}
 
-	cout << "Day 3 Part 3 answer: " << sum << endl;
+	cout << "Day 3 Part 2 answer: " << sum << endl;
 	//figure out which ones count
 	//return answer
 
 }
 
-int returnProductIfAroundStar(vector<string>& lines,  int row, int col)
+long long returnProductIfAroundStar(vector<string>& lines,  int row, int col)
 {
 	vector<int> dx{ -1,-1,-1,0,0,1,1,1 };
 	vector<int> dy{ -1,0,1,-1,1,-1,0,1 };
 
-	int a{ 0 };
-	int b{ 0 };
+	long long a{ 0 };
+	long long b{ 0 };
+	vector<long long> nums; 
 	for (int i = 0; i < dx.size(); i++)
 	{
 		
-		if (row + dx[i] >= 0 && row + dx[i] < lines.size() &&
-			col + dy[i] >= 0 && col + dy[i] < lines[0].size()
-			)
+		if (isValidPoint(row + dx[i], col + dy[i], lines.size(), lines[0].size()))
 		{
 			if (isdigit(lines[row + dx[i]][col + dy[i]]))
 			{
 				//keep going left until you stop having digits
-				int left = 0;
-				while (isValidPoint(row + dx[i] , col + dy[i] - left, lines.size(), lines[0].size())
-					&& isdigit(lines[row + dx[i]][col + dy[i] - left] ) )
+				int left = col + dy[i];
+
+				while (isValidPoint(row + dx[i] ,left, lines.size(), lines[0].size())
+					&& isdigit(lines[row + dx[i]][left] ) )
 				{
-					left++; 
+					left--; 
 				}
-				if (left > 0)
-				{
-					left--;
-				}
+				//if (left > 0)
+				//{
+					left++;
+				//}
 
 				//keep going right until you stop having digits
 				int right = 0;
-				while (isValidPoint(row + dx[i]  , col + dy[i] + right, lines.size(), lines[0].size())
-					&& isdigit(lines[row + dx[i]][col + dy[i]+right] ))
+				while (isValidPoint(row + dx[i] ,left + right, lines.size(), lines[0].size())
+					&& isdigit(lines[row + dx[i]][left +right] ))
 				{
 					right++;
 				}
-				if (right > 0)
+				//right--;
+				/*if (right > 1)
 				{
 					right--;
-				}
+				}*/
 				//get full digit string from[left,right]
 				
-				cout << "start: " << col + dy[i] - left << endl;
-				cout << "end: " << right - left  << endl; 
-				cout << lines[row + dx[i]].substr(col + dy[i] - left, right - left+1) << endl;
+				//cout << "start: " << col + dy[i] - left << endl;
+				//cout << "length: " << abs(right - left )+1 << endl;
+				//cout << "val: " << lines[row + dx[i]].substr(col + dy[i] - left, abs(right - left )+1) << endl;
+				
+				//right = min(1, right);
+				
+				if (right > 0)
+				{
+					nums.push_back(stoll(lines[row + dx[i]].substr(left, right)));
+				}
 
+				/*if (a == 0)
+				{
+					a = stoll(lines[row + dx[i]].substr(col + dy[i] - left, abs(right - left )+1));
+				}
+				else
+				{
+					b = stoll(lines[row + dx[i]].substr(col + dy[i] - left, abs(right - left )+1));
+					
+				}*/
+
+				for (int j = 0; j < right; j++)
+				{
+					lines[row + dx[i]][left + j] = '.';
+
+				}
 				//mark [left, right] as all stars
 			}
 
 		}
 	}
-	return a*b;
+	if (nums.size() == 2)
+	{
+		return nums[0] * nums[1];
+	}
+	return 0;
 }
 
 
@@ -142,7 +170,7 @@ int returnProductIfAroundStar(vector<string>& lines,  int row, int col)
 
 bool isValidPoint(int row, int col, int  maxRows, int  maxCols)
 {
-	return row < 0 || row >= maxRows || col < 0 || maxCols >= maxRows;
+	return !(row < 0 || row >= maxRows || col < 0 || col >= maxCols);
 }
 
 
