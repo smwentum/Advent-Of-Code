@@ -49,7 +49,7 @@ void Day5PartOne()
 				istringstream iss(lines[i]);
 				long long source, dest, length; 
 				iss >> source >> dest >> length;
-				cout << source << " " << dest << " " << length << endl;
+				//cout << source << " " << dest << " " << length << endl;
 				seedMaps[start].push_back(SeedMapper(source, dest, length));
 			}
 		}
@@ -95,7 +95,7 @@ long long applyMapping(long long start, vector<SeedMapper> map)
 
 vector<string> getInput()
 {
-	ifstream file("Day5a.txt");
+	ifstream file("Day5.txt");
 	string line; 
 	vector<string> lines{};
 
