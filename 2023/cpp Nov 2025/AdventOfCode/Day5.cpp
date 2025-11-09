@@ -129,7 +129,7 @@ void Day5PartTwo()
 
 	for (int i = 0; i < seedMaps.size(); i++)
 	{
-		vector<SeedHistoryPt2>  seeds = getNewHistory(seeds, seedMaps[i]);
+		seeds = getNewHistory(seeds, seedMaps[i]);
 	}
 
 	//for (int i = 0; i < seeds.size(); i++)
@@ -143,9 +143,9 @@ void Day5PartTwo()
 	//	seeds[i].setLocation(applyMapping(seeds[i].getHumidity(), seedMaps[6]));
 	//	//ans += seedhistory.getLocation();
 	//}
-	//auto ans = std::min_element(seeds.begin(), seeds.end(), [](const SeedHistory& a, const SeedHistory& b) {return  a.getLocation() < b.getLocation(); });
+	auto ans = std::min_element(seeds.begin(), seeds.end(), [](const SeedHistoryPt2& a, const SeedHistoryPt2& b) {return  a.getStart() < b.getStart(); });
 
-	cout << "Day 5 part 2 answer: " << "dont know" << endl;
+	cout << "Day 5 part 2 answer: " << ans->getStart() << endl;
 
 }
 
@@ -159,14 +159,25 @@ vector<SeedHistoryPt2> getNewHistory(vector<SeedHistoryPt2> seeds, vector<SeedMa
 		queue.push(seed);
 	}
 
-	SeedHistoryPt2 curr = queue.front();
-	queue.pop(); 
+
 
 	while (queue.size() > 0)
 	{
+		SeedHistoryPt2 curr = queue.front();
+		queue.pop();
 
 		// 3 cases
 		// if a range completely includes the range then just apply the mapping
+		const auto it = std::find_if(map.begin(), map.end(), [curr](SeedMapper m1) { return m1.seedRangeIsInMapperRange(curr); });
+
+		if (it != map.end())
+		{
+			curr.setStart(it->getNewValue(curr.getStart()));
+			ans.push_back(curr);
+			continue;
+		}
+
+
 		// if a range is disjoint from all the map then ignore it
 		if (all_of(map.begin(), map.end(), [curr](SeedMapper m) {return m.isDisjoint(curr); }))
 		{
@@ -175,6 +186,15 @@ vector<SeedHistoryPt2> getNewHistory(vector<SeedHistoryPt2> seeds, vector<SeedMa
 		}
 
 		// (hard) if they insersect, cut the intersecting part into two maps and try again; 
+		const auto it1 = std::find_if(map.begin(), map.end(), [curr](SeedMapper m1) { return m1.rangesIntersectALittle(curr); });
+
+		if (it1 != map.end())
+		{
+			for (auto sh : it1->getNewValues(curr))
+			{
+				queue.push(sh);
+			}
+		}
 	}
 	return ans; 
 	

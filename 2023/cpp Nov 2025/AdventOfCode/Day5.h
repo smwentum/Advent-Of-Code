@@ -17,3 +17,4 @@ void Day5PartOne();
 void Day5PartTwo();
 std::vector<std::string> getInput();
 long long applyMapping(long long start, std::vector<SeedMapper> map);
+std::vector<SeedHistoryPt2> getNewHistory(std::vector<SeedHistoryPt2> seeds, std::vector<SeedMapper> map);
