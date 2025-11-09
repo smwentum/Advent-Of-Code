@@ -4,8 +4,8 @@
 
 SeedMapper::SeedMapper(long long source, long long dest, long length)
 {
-	this->source = source;
-	this->dest = dest;
+	this->source = dest;
+	this->dest = source;
 	this->length = length;
 }
 
