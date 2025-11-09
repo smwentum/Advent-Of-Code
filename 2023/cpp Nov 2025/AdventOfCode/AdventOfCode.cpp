@@ -39,6 +39,7 @@ int main()
 
 	cout << "Day 5" << endl;
 	Day5PartOne();
+	Day5PartTwo();
 	cout << endl;
 	
 }

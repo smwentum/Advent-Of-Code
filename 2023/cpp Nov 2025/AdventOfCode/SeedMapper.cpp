@@ -22,3 +22,17 @@ long long SeedMapper::getNewValue(long long seed)
 	}
 	return seed;
 }
+
+bool SeedMapper::isDisjoint(SeedHistoryPt2 seed)
+{
+	long long start1 = source;
+	long long end1 = source + length;
+	long long start2 = seed.getStart(); 
+	long long end2 = seed.getLength() + seed.getStart(); 
+
+	//i just need to make sure these intervals don't overlap
+	return start1 > end2 || start2 > end1; 
+
+
+
+}
