@@ -8,39 +8,44 @@
 #include "Day3.h"
 #include "Day4.h"
 #include "Day5.h"
+#include "Day6.h"
 
 using namespace std; 
 
 int main()
 {
-	//Day 1
-	cout << "Day 1" << endl; 
-	DayOnePartOne();
-	DayOnePartTwo();
-	cout << endl;
+	////Day 1
+	//cout << "Day 1" << endl; 
+	//DayOnePartOne();
+	//DayOnePartTwo();
+	//cout << endl;
 
-	//Day 2
-	cout << "Day 2" << endl;
-	Day2PartOne();
-	Day2PartTwo();
-	cout << endl;
+	////Day 2
+	//cout << "Day 2" << endl;
+	//Day2PartOne();
+	//Day2PartTwo();
+	//cout << endl;
 
-	//Day 3
-	cout << "Day 3" << endl; 
-	Day3PartOne();
-	Day3PartTwo();
+	////Day 3
+	//cout << "Day 3" << endl; 
+	//Day3PartOne();
+	//Day3PartTwo();
+	//cout << endl; 
+
+	//cout << "Day 4" << endl; 
+	//Day4PartOne();
+	//Day4PartTwo();
+	//cout << endl;
+
+
+	//cout << "Day 5" << endl;
+	//Day5PartOne();
+	//Day5PartTwo();
+	//cout << endl;
+
+	cout << "Day 6" << endl; 
+	Day6PartOne();
 	cout << endl; 
-
-	cout << "Day 4" << endl; 
-	Day4PartOne();
-	Day4PartTwo();
-	cout << endl;
-
-
-	cout << "Day 5" << endl;
-	Day5PartOne();
-	Day5PartTwo();
-	cout << endl;
 	
 }
 
