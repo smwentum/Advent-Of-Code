@@ -11,15 +11,7 @@ void Day6PartOne()
 	vector<int> distances{ getNumbersFromLinePt6(lines[1]) };
 	long long product = 1;
 
-	for (auto time : times)
-	{
-		cout << time << endl; 
-	}
-
-	for (auto distance : distances)
-	{
-		cout << distance << endl; 
-	}
+	
 
 	for (int i = 0; i < times.size(); i++)
 	{
@@ -79,7 +71,7 @@ vector<int> getNumbersFromLinePt6(string line)
 	vector<int> numbers{};
 	line = line.substr(line.find_first_of(':')+1);
 	line = line.substr(line.find_first_not_of(' '));
-	cout << line << endl; 
+	//cout << line << endl; 
 	stringstream ss(line);
 	string numberString;
 	
