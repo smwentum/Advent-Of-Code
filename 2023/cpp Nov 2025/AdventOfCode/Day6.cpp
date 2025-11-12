@@ -27,6 +27,26 @@ void Day6PartOne()
 
 }
 
+
+void Day6PartTwo()
+{
+	//get the data 
+	vector<string> lines = getThelines();
+
+	long long  times{ getNumbersFromLineDay6Part2(lines[0])};
+	long long distances{ getNumbersFromLineDay6Part2(lines[1]) };
+	long long product = 1;
+
+
+
+	long long ans = getNumberOfWaysToWin(times, distances);
+
+
+	cout << "Day 6 part 2: " << ans << endl;
+
+
+}
+
 long long getNumberOfWaysToWin(long long time, long long distance)
 {
 	long long left{0};
@@ -85,6 +105,37 @@ vector<int> getNumbersFromLinePt6(string line)
 		}
 	}
 	return numbers;
+}
+
+long long getNumbersFromLineDay6Part2(string line)
+{
+    // substring after ':'
+    auto colonPos = line.find_first_of(':');
+    if (colonPos != string::npos)
+    {
+        line = line.substr(colonPos + 1);
+    }
+
+    // trim leading whitespace (spaces, tabs, CR, LF)
+    size_t first = line.find_first_not_of(" \t\r\n");
+    if (first != string::npos)
+    {
+        line = line.substr(first);
+    }
+    else
+    {
+        line.clear();
+    }
+
+    // remove all non-digit characters (use unsigned char with isdigit)
+    line.erase(std::remove_if(line.begin(), line.end(), [](unsigned char c) {
+        return !std::isdigit(c);
+    }), line.end());
+
+    if (line.empty())
+        return 0ll;
+
+    return std::stoll(line);
 }
 
 
