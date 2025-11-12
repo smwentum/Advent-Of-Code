@@ -86,6 +86,7 @@
     <Text Include="day6a.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="day6.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
