@@ -42,6 +42,9 @@
     <ClCompile Include="SeedHistoryPt2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Day6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="CamelHand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,6 +89,13 @@
     <Text Include="Day5.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="day6a.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day6.txt" />
+    <Text Include="Day5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
     <Text Include="day7a.txt">
       <Filter>Resource Files</Filter>
     </Text>
@@ -113,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SeedHistoryPt2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day6.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CamelHand.h">
