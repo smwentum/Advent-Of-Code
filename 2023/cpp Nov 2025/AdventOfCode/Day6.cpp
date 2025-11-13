@@ -9,7 +9,12 @@ void DaySixPartOne()
 
 	for (auto line : lines)
 	{
-		cout << line << endl;
+		//cout << line << endl;
+		int indexof = line.find_first_of(' ');
+		string hand = line.substr(0, indexof - 1); 
+		long long score = stoll(line.substr(indexof + 1));
+		cout << "hand: " << hand << " score: " << score << endl;
+
 	}
 
 }
