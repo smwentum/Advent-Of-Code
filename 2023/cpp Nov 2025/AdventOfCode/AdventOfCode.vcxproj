@@ -133,6 +133,7 @@
     <ClCompile Include="Day5.cpp" />
     <ClCompile Include="Day6.cpp" />
     <ClCompile Include="Day7.cpp" />
+    <ClCompile Include="HandType.h" />
     <ClCompile Include="SeedHistory.cpp" />
     <ClCompile Include="SeedHistoryPt2.cpp" />
     <ClCompile Include="SeedMapper.cpp" />
