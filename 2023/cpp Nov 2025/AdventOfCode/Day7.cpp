@@ -1,8 +1,8 @@
-#include "Day6.h"
+#include "Day7.h"
 
 using namespace std;
 
-void DaySixPartOne()
+void Day7PartOne()
 {
 	//read in the input
 	vector<string> lines = GetInput(); 

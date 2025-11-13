@@ -6,5 +6,5 @@
 #include<string>
 
 
-void DaySixPartOne();
+void Day7PartOne();
 std::vector<std::string> GetInput();
