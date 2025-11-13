@@ -151,6 +151,7 @@
     <Text Include="day4a.txt" />
     <Text Include="Day5.txt" />
     <Text Include="day5a.txt" />
+    <Text Include="day7a.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CamelHand.h" />
