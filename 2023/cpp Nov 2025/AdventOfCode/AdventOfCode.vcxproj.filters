@@ -42,6 +42,12 @@
     <ClCompile Include="SeedHistoryPt2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CamelHand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -102,6 +108,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SeedHistoryPt2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CamelHand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day6.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

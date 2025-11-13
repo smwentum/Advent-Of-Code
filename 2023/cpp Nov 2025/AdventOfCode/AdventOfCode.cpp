@@ -8,6 +8,7 @@
 #include "Day3.h"
 #include "Day4.h"
 #include "Day5.h"
+#include "Day6.h"
 
 using namespace std; 
 
@@ -41,6 +42,10 @@ int main()
 	Day5PartOne();
 	Day5PartTwo();
 	cout << endl;
-	
+
+
+	cout << "Day 6" << endl;
+	DaySixPartOne();
+	cout << endl;
 }
 
