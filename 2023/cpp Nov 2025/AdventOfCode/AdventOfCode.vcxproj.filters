@@ -57,6 +57,9 @@
     <ClCompile Include="HandType.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="CamelCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -141,6 +144,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Day7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CamelCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

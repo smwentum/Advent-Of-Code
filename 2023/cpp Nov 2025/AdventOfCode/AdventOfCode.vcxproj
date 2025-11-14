@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdventOfCode.cpp" />
+    <ClCompile Include="CamelCard.cpp" />
     <ClCompile Include="CamelHand.cpp" />
     <ClCompile Include="Day1.cpp" />
     <ClCompile Include="Day2.cpp" />
@@ -158,6 +159,7 @@
     <Text Include="day7a.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CamelCard.h" />
     <ClInclude Include="CamelHand.h" />
     <ClInclude Include="Day1.h" />
     <ClInclude Include="Day2.h" />
