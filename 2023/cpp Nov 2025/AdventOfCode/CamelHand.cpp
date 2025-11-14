@@ -15,8 +15,8 @@ CamelHand::CamelHand(string hand, long long bid)
 	}
 	sort(cards.begin(),cards.end());
 	this->handType = GetHandType(cards);
-	cout << "Hand: " << this->hand
-		<< " " << GetHandTypeName(this->handType) << endl; 
+	/*cout << "Hand: " << this->hand
+		<< " " << GetHandTypeName(this->handType) << endl; */
 }
 
 string CamelHand::GetHandTypeName(HandType ht)
@@ -131,6 +131,10 @@ bool CamelHand::isThreeOfAKind(vector<CamelCard> cards)
 //This assumes the cards are sorted 
 bool CamelHand::isPair(vector<CamelCard> cards)
 {
+	if (cards.size() < 2)
+	{
+		return false;
+	}
 
 	for (int i = 0; i < cards.size()-1; i++)
 	{

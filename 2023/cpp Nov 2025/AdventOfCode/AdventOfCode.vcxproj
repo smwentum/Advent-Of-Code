@@ -156,6 +156,7 @@
     <Text Include="day5a.txt" />
     <Text Include="day6.txt" />
     <Text Include="day6a.txt" />
+    <Text Include="day7.txt" />
     <Text Include="day7a.txt" />
   </ItemGroup>
   <ItemGroup>

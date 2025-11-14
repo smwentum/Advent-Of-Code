@@ -13,8 +13,8 @@ void Day7PartOne()
 		int indexof = line.find_first_of(' ');
 		string hand = line.substr(0, indexof ); 
 		long long score = stoll(line.substr(indexof + 1));
-		cout << "hand: " << hand << " score: " << score << endl;
-//		cout << "\n";
+		//cout << "hand: " << hand << " score: " << score << endl;
+		//		cout << "\n";
 		hands.push_back(CamelHand(hand, score));
 	
 
@@ -31,13 +31,13 @@ void Day7PartOne()
 	}
 
 
-	cout << "Day 7 part `" << total << endl;
+	cout << "Day 7 part 1: " << total << endl;
 }
 
 vector<string> GetInput()
 {
 	vector<string> lines{};
-	ifstream file("day7a.txt");
+	ifstream file("day7.txt");
 	string line;
 
 	while (getline(file, line))
