@@ -3,6 +3,8 @@
 
 using namespace std; 
 
+//TODO: figure out why i get this 6T666 Full house which is wrong
+
 CamelHand::CamelHand(string hand, long long bid)
 {
 	this->hand = hand; 
@@ -15,8 +17,8 @@ CamelHand::CamelHand(string hand, long long bid)
 	}
 	sort(cards.begin(),cards.end());
 	this->handType = GetHandType(cards);
-	/*cout << "Hand: " << this->hand
-		<< " " << GetHandTypeName(this->handType) << endl; */
+	cout << "Hand: " << this->hand
+		<< " " << GetHandTypeName(this->handType) << endl; 
 }
 
 string CamelHand::GetHandTypeName(HandType ht)
@@ -50,8 +52,7 @@ HandType CamelHand::GetHandType(vector<CamelCard> cards)
 	{
 		return HandType::FiveOfAKind;
 	}
-	if (isFourOfAKind(vector<CamelCard>(cards.begin() + 1, cards.end())) ||
-		isFourOfAKind(vector<CamelCard>(cards.begin(), cards.end() - 1)))
+	if (isFourOfAKind(vector<CamelCard>(cards.begin(), cards.end())))
 	{
 		return HandType::FourOfAKind;
 	}
@@ -102,15 +103,31 @@ bool CamelHand::isFiveOfAKind(vector<CamelCard> cards)
 
 bool CamelHand::isFourOfAKind(vector<CamelCard> cards) 
 {
+	bool isFirstFourCardsAFourOfAKind = true; 
 	for (int i = 0; i < cards.size() - 1; i++)
 	{
-		if (cards[i] != cards[i + 1])
+		if (cards[0] != cards[i + 1])
+		{
+			isFirstFourCardsAFourOfAKind = false;
+			break; 
+		}
+	}
+	if (isFirstFourCardsAFourOfAKind)
+	{
+		return true; 
+	}
+	bool isLastfourCardsAforOfAKind = true; 
+	for (int i = 1; i < cards.size()-1 ; i++)
+	{
+		if (cards[1] != cards[i + 1])
 		{
 			return false;
 		}
 	}
+	return true; 
 
-	return cards.size() == 4;
+
+
 }
 
 bool CamelHand::isThreeOfAKind(vector<CamelCard> cards)
