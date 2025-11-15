@@ -16,10 +16,11 @@ class CamelHand
 		long long getBid();
 		bool operator<(const CamelHand& other) const;
 		bool operator()(const CamelHand& a, const CamelHand& b) const;
+		HandType handType;
+		std::string hand;
 	private:
-		std::string hand; 
+		//std::string hand; 
 		long long bid;
-		HandType handType; 
 		std::string GetHandTypeName(HandType ht);
 		std::vector<CamelCard> cards;
 		HandType GetHandType(std::vector<CamelCard> cards);

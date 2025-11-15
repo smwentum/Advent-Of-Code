@@ -14,6 +14,8 @@ class CamelCard
 
 		int getStrength() const;
 
+		//static int getStrengthPart2(char letter);
+
 		bool operator==(const CamelCard& other) const;
 		bool operator<(const CamelCard& other) const;
 

@@ -29,8 +29,11 @@ CamelHand::CamelHand(string hand, long long bid, bool usePart2Deck)
 		this->handType = max(HandTypeOldWay,HandTypeNewWay);
 	}
 	
-	cout << "Hand: " << this->hand
-		<< " " << GetHandTypeName(this->handType) << endl; 
+	if (any_of(hand.begin(), hand.end(), [](char c) { return c == 'J'; }))
+	{
+		cout << "Hand: " << this->hand
+			<< " " << GetHandTypeName(this->handType) << endl;
+	}
 }
 
 string CamelHand::GetHandTypeName(HandType ht)
@@ -128,10 +131,15 @@ HandType CamelHand::GetHandTypePart2(vector<CamelCard> cards)
 		{
 			return HandType::FiveOfAKind;
 		}
+		if (isThreeOfAKind(cards))
+		{
+			return HandType::FullHouse;
+		}
 		if (isPair(cards))
 		{
 			return HandType::FourOfAKind;
 		}
+		return HandType::ThreeOfKind;
 	}
 	if (cards.size() == 4)
 	{
@@ -141,6 +149,22 @@ HandType CamelHand::GetHandTypePart2(vector<CamelCard> cards)
 		{
 			return HandType::FiveOfAKind;
 		}
+		if (isTwoPair(cards))
+		{
+			return HandType::FullHouse;
+		}
+		if (isThreeOfAKind(cards))
+		{
+			return HandType::FourOfAKind;
+		}
+		
+		if (isPair(cards))
+		{
+			return HandType::ThreeOfKind;
+		}
+
+
+		return HandType::OnePair;
 
 	}
 
@@ -201,6 +225,11 @@ bool CamelHand::isFourOfAKind(vector<CamelCard> cards)
 bool CamelHand::isThreeOfAKind(vector<CamelCard> cards)
 {
 	
+	if (cards.size() < 3)
+	{
+		return false;
+	}
+
 	for (int i = 0; i < cards.size() - 2; i++)
 	{
 		if (cards[i] == cards[i + 1] 
@@ -235,6 +264,10 @@ bool CamelHand::isPair(vector<CamelCard> cards)
 
 bool CamelHand::isTwoPair(vector<CamelCard> cards)
 {
+	if (cards.size() < 4)
+	{
+		return false;
+	}
 
 	for (int i = 0; i < cards.size() - 1; i++)
 	{

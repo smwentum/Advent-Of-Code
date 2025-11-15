@@ -50,3 +50,5 @@ int CamelCard::getStrength() const
 	}
 	return 0;
 }
+
+

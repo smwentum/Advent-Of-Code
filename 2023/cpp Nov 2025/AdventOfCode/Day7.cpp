@@ -38,6 +38,9 @@ void Day7PartTwo()
 {
 	vector<string> lines = GetInput();
 	vector<CamelHand> hands{};
+	//Hand: T55J5 Three of a kind
+	// Hand: Hand: JJA87 One pair
+	//hands.push_back(CamelHand("JJA87", 14,true));
 	for (auto line : lines)
 	{
 		//cout << line << endl;
@@ -49,7 +52,21 @@ void Day7PartTwo()
 		hands.push_back(CamelHand(hand, score,true));
 	}
 
-	sort(hands.begin(), hands.end());
+	sort(hands.begin(), hands.end(), 
+		[](const CamelHand& a, const CamelHand& b) {
+			if (a.handType != b.handType)
+			{
+				return a.handType < b.handType;
+			}
+			for (int i = 0; i < 5; i++)
+			{
+				if (a.hand[i] != b.hand[i])
+				{
+					return getStrengthPart2(a.hand[i]) < getStrengthPart2(b.hand[i]);
+				}
+			}
+			return false; 
+		});
 
 
 
@@ -66,7 +83,7 @@ void Day7PartTwo()
 vector<string> GetInput()
 {
 	vector<string> lines{};
-	ifstream file("day7a.txt");
+	ifstream file("day7.txt");
 	string line;
 
 	while (getline(file, line))
@@ -74,4 +91,38 @@ vector<string> GetInput()
 		lines.push_back(line);
 	}
 	return lines;
+}
+
+int getStrengthPart2(char letter)
+{
+	switch (letter)
+	{
+	case '2':
+		return 2;
+	case '3':
+		return 3;
+	case '4':
+		return 4;
+	case '5':
+		return 5;
+	case '6':
+		return 6;
+	case '7':
+		return 7;
+	case '8':
+		return 8;
+	case '9':
+		return 9;
+	case 'T':
+		return 10;
+	case 'J':
+		return -1;
+	case 'Q':
+		return 12;
+	case 'K':
+		return 13;
+	case 'A':
+		return 14;
+	}
+	return 0;
 }
