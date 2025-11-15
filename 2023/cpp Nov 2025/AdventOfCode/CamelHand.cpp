@@ -104,7 +104,7 @@ bool CamelHand::isFiveOfAKind(vector<CamelCard> cards)
 bool CamelHand::isFourOfAKind(vector<CamelCard> cards) 
 {
 	bool isFirstFourCardsAFourOfAKind = true; 
-	for (int i = 0; i < cards.size() - 1; i++)
+	for (int i = 0; i < cards.size() - 2; i++)
 	{
 		if (cards[0] != cards[i + 1])
 		{
