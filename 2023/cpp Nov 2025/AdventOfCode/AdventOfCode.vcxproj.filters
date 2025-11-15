@@ -45,6 +45,21 @@
     <ClCompile Include="Day6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CamelHand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HandType.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CamelCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -87,6 +102,13 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="day6.txt" />
+    <Text Include="Day5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day7a.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day7.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
@@ -114,6 +136,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Day6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CamelHand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CamelCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
