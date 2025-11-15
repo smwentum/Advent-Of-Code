@@ -53,6 +53,7 @@ int main()
 
 	cout << "Day 7" << endl;
 	Day7PartOne();
+	Day7PartTwo();
 	cout << endl;
 }
 

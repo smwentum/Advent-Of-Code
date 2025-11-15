@@ -3,9 +3,8 @@
 
 using namespace std; 
 
-//TODO: figure out why i get this 6T666 Full house which is wrong
 
-CamelHand::CamelHand(string hand, long long bid)
+CamelHand::CamelHand(string hand, long long bid, bool usePart2Deck)
 {
 	this->hand = hand; 
 	this->bid = bid; 
@@ -13,10 +12,23 @@ CamelHand::CamelHand(string hand, long long bid)
 	
 	for (char h : hand)
 	{
+		
 		cards.push_back(CamelCard(h));
+		
 	}
-	sort(cards.begin(),cards.end());
-	this->handType = GetHandType(cards);
+	sort(cards.begin(), cards.end());
+	if (!usePart2Deck)
+	{
+
+		this->handType = GetHandType(cards);
+	}
+	else
+	{
+		HandType HandTypeOldWay = GetHandType(cards); 
+		HandType HandTypeNewWay = GetHandTypePart2(cards);
+		this->handType = max(HandTypeOldWay,HandTypeNewWay);
+	}
+	
 	cout << "Hand: " << this->hand
 		<< " " << GetHandTypeName(this->handType) << endl; 
 }
@@ -87,11 +99,65 @@ HandType CamelHand::GetHandType(vector<CamelCard> cards)
 	return HandType::HighCard;
 }
 
+
+HandType CamelHand::GetHandTypePart2(vector<CamelCard> cards)
+{
+	//took this from the last time i answered this i am going to strip out the jacks and see what happens
+	erase_if(cards, [](CamelCard c) { return c.letter == 'J'; });
+	sort(cards.begin(), cards.end());
+	if (cards.size() == 0 || cards.size() == 1)
+	{
+		return HandType::FiveOfAKind;
+	}
+	if (cards.size() == 2)
+	{
+		if (isPair(cards))
+		{
+			return HandType::FiveOfAKind;
+		}
+		else
+		{
+			return HandType::FourOfAKind;
+		}
+	}
+	if (cards.size() == 3)
+	{
+		if (all_of(cards.begin() + 1, cards.end(), [&](const CamelCard& c) {
+			return c.letter == cards[0].letter;
+			}))
+		{
+			return HandType::FiveOfAKind;
+		}
+		if (isPair(cards))
+		{
+			return HandType::FourOfAKind;
+		}
+	}
+	if (cards.size() == 4)
+	{
+		if (all_of(cards.begin() + 1, cards.end(), [&](const CamelCard& c) {
+			return c.letter == cards[0].letter;
+			}))
+		{
+			return HandType::FiveOfAKind;
+		}
+
+	}
+
+
+
+	
+
+	return HandType::HighCard;
+}
+
+
+
 bool CamelHand::isFiveOfAKind(vector<CamelCard> cards) 
 {
 	for (int i = 0; i < cards.size()-1; i++)
 	{
-		if (cards[i] != cards[i + 1])
+		if (cards[i].letter != cards[i + 1].letter)
 		{
 			return false; 
 		}
@@ -101,12 +167,14 @@ bool CamelHand::isFiveOfAKind(vector<CamelCard> cards)
 		
 }
 
+
+
 bool CamelHand::isFourOfAKind(vector<CamelCard> cards) 
 {
 	bool isFirstFourCardsAFourOfAKind = true; 
 	for (int i = 0; i < cards.size() - 2; i++)
 	{
-		if (cards[0] != cards[i + 1])
+		if (cards[0].letter != cards[i + 1].letter)
 		{
 			isFirstFourCardsAFourOfAKind = false;
 			break; 
@@ -119,7 +187,7 @@ bool CamelHand::isFourOfAKind(vector<CamelCard> cards)
 	bool isLastfourCardsAforOfAKind = true; 
 	for (int i = 1; i < cards.size()-1 ; i++)
 	{
-		if (cards[1] != cards[i + 1])
+		if (cards[1].letter != cards[i + 1].letter)
 		{
 			return false;
 		}
@@ -164,6 +232,7 @@ bool CamelHand::isPair(vector<CamelCard> cards)
 }
 
 
+
 bool CamelHand::isTwoPair(vector<CamelCard> cards)
 {
 
@@ -181,6 +250,7 @@ bool CamelHand::isTwoPair(vector<CamelCard> cards)
 	}
 	return false;
 }
+
 
 bool CamelHand::operator<(const CamelHand& other) const
 {

@@ -3,13 +3,15 @@
 
 class CamelCard
 {
-	private:
-		char letter;
-		int strength;
+
+		
 	
 	public:
 		CamelCard(char letter);
 		
+		char letter;
+		int strength;
+
 		int getStrength() const;
 
 		bool operator==(const CamelCard& other) const;
