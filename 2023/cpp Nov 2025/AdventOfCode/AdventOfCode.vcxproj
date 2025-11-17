@@ -134,6 +134,7 @@
     <ClCompile Include="Day5.cpp" />
     <ClCompile Include="Day6.cpp" />
     <ClCompile Include="Day7.cpp" />
+    <ClCompile Include="Day8.cpp" />
     <ClCompile Include="HandType.h" />
     <ClCompile Include="SeedHistory.cpp" />
     <ClCompile Include="SeedHistoryPt2.cpp" />
@@ -158,6 +159,7 @@
     <Text Include="day6a.txt" />
     <Text Include="day7.txt" />
     <Text Include="day7a.txt" />
+    <Text Include="day8a.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CamelCard.h" />
@@ -169,6 +171,7 @@
     <ClInclude Include="Day5.h" />
     <ClInclude Include="Day6.h" />
     <ClInclude Include="Day7.h" />
+    <ClInclude Include="Day8.h" />
     <ClInclude Include="SeedHistory.h" />
     <ClInclude Include="SeedHistoryPt2.h" />
     <ClInclude Include="SeedMapper.h" />
