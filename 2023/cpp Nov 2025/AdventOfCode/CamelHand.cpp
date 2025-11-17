@@ -31,8 +31,8 @@ CamelHand::CamelHand(string hand, long long bid, bool usePart2Deck)
 	
 	if (any_of(hand.begin(), hand.end(), [](char c) { return c == 'J'; }))
 	{
-		cout << "Hand: " << this->hand
-			<< " " << GetHandTypeName(this->handType) << endl;
+		/*cout << "Hand: " << this->hand
+			<< " " << GetHandTypeName(this->handType) << endl;*/
 	}
 }
 
