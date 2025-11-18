@@ -1,10 +1,13 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-#include <vector>
-#include <fstream>
 
+
+#include <fstream>
+#include <iostream>
+#include <set>
+#include <string>
+
+#include <vector>
 
 
 void Day8PartOne();

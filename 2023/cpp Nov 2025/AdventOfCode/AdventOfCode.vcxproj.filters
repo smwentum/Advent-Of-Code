@@ -63,6 +63,9 @@
     <ClCompile Include="Day8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Day8Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -119,6 +122,8 @@
     <Text Include="day7.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Day8b.txt" />
+    <Text Include="Day8.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
@@ -161,6 +166,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Day8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day8Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
