@@ -163,6 +163,7 @@
     <Text Include="Day8.txt" />
     <Text Include="day8a.txt" />
     <Text Include="Day8b.txt" />
+    <Text Include="day8c.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CamelCard.h" />

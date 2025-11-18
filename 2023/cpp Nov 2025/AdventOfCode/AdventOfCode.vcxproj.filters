@@ -122,8 +122,15 @@
     <Text Include="day7.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Day8b.txt" />
-    <Text Include="Day8.txt" />
+    <Text Include="Day8.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Day8b.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day8c.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
