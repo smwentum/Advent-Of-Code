@@ -9,7 +9,7 @@ void Day9PartOne()
 	long long answer{ 0 }; 
 	for (auto line : lines)
 	{
-		cout << line << endl; 
+		//cout << line << endl; 
 		answer += getDay9PartOneVal(line); 
 	}
 
@@ -59,7 +59,7 @@ vector<string> getDay9Input()
 {
 
 	vector<string> lines{};
-	ifstream file("Day9a.txt"); 
+	ifstream file("Day9.txt"); 
 	string line;
 	while (getline(file, line))
 	{
