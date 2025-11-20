@@ -11,6 +11,8 @@
 #include "Day6.h"
 #include "Day7.h"
 #include "Day8.h"
+#include "Day9.h"
+
 
 using namespace std; 
 
@@ -62,6 +64,12 @@ int main()
 	cout << "Day 8" << endl;
 	Day8PartOne();
 	Day8PartTwo();
+	cout << endl;
+
+
+	cout << "Day 9" << endl;
+	Day9PartOne();
+	Day9PartTwo();
 	cout << endl;
 }
 
