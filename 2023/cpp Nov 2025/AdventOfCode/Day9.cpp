@@ -16,6 +16,19 @@ void Day9PartOne()
 	cout << "Day 9 part 1 answer: " << answer << endl; 
 }
 
+void Day9PartTwo() 
+{
+	vector<string> lines = getDay9Input();
+	long long answer{ 0 };
+	for (auto line : lines)
+	{
+		//cout << line << endl; 
+		answer += getDay9PartTwoVal(line);
+	}
+
+	cout << "Day 9 part 2 answer: " << answer << endl;
+}
+
 long long getDay9PartOneVal(string line)
 {
 	vector<vector<long long>> rows;
@@ -39,6 +52,32 @@ long long getDay9PartOneVal(string line)
 	}
 	return sum;
 	
+}
+
+long long getDay9PartTwoVal(string line)
+{
+	vector<vector<long long>> rows;
+	vector<long long> curr = convertLineToVector(line);
+	while (!all_of(curr.begin(), curr.end(),
+		[](long long i) {return i == 0; }))
+	{
+		rows.push_back(curr);
+		vector<long long> curr1{};
+		for (int i = 0; i < curr.size() - 1; i++)
+		{
+			curr1.push_back(curr[i + 1] - curr[i]);
+		}
+		curr = curr1;
+	}
+	rows.push_back(curr);
+	long long sum{ 0 };
+	reverse(rows.begin(), rows.end());
+	for (auto row : rows)
+	{
+		sum = row[0]-sum;
+	}
+	return sum;
+
 }
 vector<long long> convertLineToVector(string line) 
 {

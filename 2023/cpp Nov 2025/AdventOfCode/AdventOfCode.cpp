@@ -69,6 +69,7 @@ int main()
 
 	cout << "Day 9" << endl;
 	Day9PartOne();
+	Day9PartTwo();
 	cout << endl;
 }
 
