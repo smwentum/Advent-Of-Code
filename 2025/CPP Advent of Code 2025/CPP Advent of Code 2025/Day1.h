@@ -9,5 +9,5 @@
 
 std::vector<std::string> Day1ReadFile(); 
 void Day1PartOne();
-
+void Day1PartTwo();
 
