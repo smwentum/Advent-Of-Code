@@ -39,7 +39,7 @@ vector<string> Day1ReadFile()
 {
 	vector<string> lst{}; 
 
-	ifstream file("day1a.txt");
+	ifstream file("day1.txt");
 	string line; 
 	while (std::getline(file, line))
 	{
