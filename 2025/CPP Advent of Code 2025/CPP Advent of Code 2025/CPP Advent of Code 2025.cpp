@@ -3,7 +3,13 @@
 
 #include <iostream>
 
+#include "Day1.h"
+
+
+using namespace std; 
+
 int main()
 {
-    std::cout << "Hello World!\n";
+	cout << "Day 1" << endl; 
+	Day1PartOne();
 }
