@@ -44,28 +44,39 @@ void  Day1PartTwo()
 	for (auto line : lines)
 	{
 		long long num = stoll(line.substr(1));
-		if (line[0] == 'L')
+		while (num > 0)
 		{
-			start = (start - num);
-		}
-		else if (line[0] == 'R')
-		{
-			start = (start + num);
+			if (line[0] == 'L' )
+			{
+				start--;
+			}
+			else if (line[0] == 'R')
+			{
+				start++;
+
+			}
+			num--; 
+			if (start == 100|| start == -100)
+			{
+				start = 0;
+			}
+			if (start == 0)
+			{
+				count++; 
+			}
 		}
 		
-		if (start <=0  || start >= 100)
-		{
-			count++;
-		}
-		while (start < 0)
-		{
-			start += 100;
-		}
 
-		start %= 100;
+		
+		
+		/*if (start == 0)
+		{
+			count++; 
+		}*/
+
 
 	}
-	cout << "Day 1 part 1: " << count << endl;
+	cout << "Day 1 part 2: " << count << endl;
 }
 
 
