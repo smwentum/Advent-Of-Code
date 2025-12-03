@@ -7,6 +7,7 @@
 #include<sstream>
 #include<set>
 #include<vector>
+#include<numeric>
 
 #include "ProductId.h"
 
