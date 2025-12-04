@@ -15,4 +15,5 @@ int main()
 	Day1PartTwo();
 	cout << "Day2" << endl; 
 	DayTwoPartOne(); 
+	DayTwoPartTwo();
 }

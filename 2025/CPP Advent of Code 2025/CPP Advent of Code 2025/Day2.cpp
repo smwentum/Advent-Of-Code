@@ -6,22 +6,8 @@ using namespace std;
 void DayTwoPartOne()
 {
 	vector<ProductId> productIdRanges = GetDayTwoInput();
-	long long largestId = 0; 
-	for(auto productIdrange: productIdRanges)
-	{
-		largestId = max(largestId, productIdrange.getEnd());
-	}
-	//cout << largestId << endl; 
-	largestId *= 3;
-	vector<long long> fakeIds; 
-	for (long long  i = 1; i < 10; i++)
-	{
-		fakeIds.push_back(i);
-	}
-	long long curr = 1;
 	
-
-	long long count = 0;
+    long long count = 0;
 	set<long long> s; 
 	for (auto productIdRange : productIdRanges)
 	{
@@ -43,6 +29,29 @@ void DayTwoPartOne()
 	
 }
 
+void DayTwoPartTwo()
+{
+	vector<ProductId> productIdRanges = GetDayTwoInput();
+
+	long long count = 0;
+	set<long long> s;
+	for (auto productIdRange : productIdRanges)
+	{
+		for (long long start = productIdRange.getStart(); start <= productIdRange.getEnd(); start++)
+		{
+			if (isFakeNumberPart2(start))
+			{
+				s.insert(start);
+			}
+		}
+
+
+	}
+
+
+	cout << "Day 2 part 2: " << accumulate(s.begin(), s.end(), 0LL) << endl;
+}
+
 bool isFakeNumber(long long start)
 {
 	string s1 = to_string(start);
@@ -55,6 +64,36 @@ bool isFakeNumber(long long start)
 		if (s1[i] != s1[i + s1.length() / 2])
 		{
 			return false; 
+		}
+	}
+	return true; 
+}
+
+bool isFakeNumberPart2(long long start)
+{
+
+	string s1 = to_string(start);
+	for (int i = 1; i < s1.length(); i++)
+	{
+		if (s1.length() % i == 0)
+		{
+			if ( isFakeNumberPart2helper(s1, i))
+			{
+				return true; 
+			}
+		}
+	
+	}
+	return false;
+}
+
+bool isFakeNumberPart2helper(string s, int length)
+{
+	for (int i = 0; i < s.length() - length; i+=length)
+	{
+		if (s.substr(0, length) != s.substr(i + length, length))
+		{
+			return false;
 		}
 	}
 	return true; 
