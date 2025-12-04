@@ -130,12 +130,14 @@
     <ClCompile Include="CPP Advent of Code 2025.cpp" />
     <ClCompile Include="Day1.cpp" />
     <ClCompile Include="Day2.cpp" />
+    <ClCompile Include="Day3.cpp" />
     <ClCompile Include="Day4.cpp" />
     <ClCompile Include="ProductId.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h" />
     <ClInclude Include="Day2.h" />
+    <ClInclude Include="Day3.h" />
     <ClInclude Include="Day4.h" />
     <ClInclude Include="ProductId.h" />
   </ItemGroup>
@@ -146,6 +148,8 @@
     <Text Include="Day1.txt" />
     <Text Include="Day2.txt" />
     <Text Include="Day2a.txt" />
+    <Text Include="Day3a.txt" />
+    <Text Include="Day3.txt" />
     <Text Include="Day4.txt" />
     <Text Include="day4a.txt" />
   </ItemGroup>
