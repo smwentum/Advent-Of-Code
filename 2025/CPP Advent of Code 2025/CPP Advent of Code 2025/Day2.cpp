@@ -19,15 +19,7 @@ void DayTwoPartOne()
 		fakeIds.push_back(i);
 	}
 	long long curr = 1;
-	//cout << stoll("2768007812127680078121") << endl;
-	/*while (stoll(to_string(curr) + to_string(curr)) <= largestId+1)
-	{
-		fakeIds.push_back(stoll(to_string(curr) + to_string(curr)));
-		curr++; 
-	}*/
-
-	//sort(fakeIds.begin(), fakeIds.end());
-
+	
 
 	long long count = 0;
 	set<long long> s; 
@@ -43,10 +35,8 @@ void DayTwoPartOne()
 
 		
 	}
-	//38158151693 too high
-	//cout << accumulate(s.begin(),s.end(),0)
-	cout << "Day 2 part 1: " << count << endl;
-
+	
+	
 	cout << "Day 2 part 1: " << accumulate(s.begin(), s.end(), 0LL) << endl;
 
 
