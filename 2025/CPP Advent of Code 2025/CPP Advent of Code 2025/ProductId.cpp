@@ -17,3 +17,8 @@ long long ProductId::getEnd()
 {
 	return end; 
 }
+
+long long ProductId::getStart()
+{
+	return start;
+}

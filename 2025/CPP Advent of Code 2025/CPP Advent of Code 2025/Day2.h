@@ -13,3 +13,4 @@
 
 void DayTwoPartOne();
 std::vector<ProductId> GetDayTwoInput();
+bool isFakeNumber(long long start);

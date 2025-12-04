@@ -12,45 +12,62 @@ void DayTwoPartOne()
 		largestId = max(largestId, productIdrange.getEnd());
 	}
 	//cout << largestId << endl; 
-
+	largestId *= 3;
 	vector<long long> fakeIds; 
 	for (long long  i = 1; i < 10; i++)
 	{
 		fakeIds.push_back(i);
 	}
 	long long curr = 1;
-	while (stoll(to_string(curr) + to_string(curr)) <= largestId+1)
+	//cout << stoll("2768007812127680078121") << endl;
+	/*while (stoll(to_string(curr) + to_string(curr)) <= largestId+1)
 	{
 		fakeIds.push_back(stoll(to_string(curr) + to_string(curr)));
 		curr++; 
-	}
+	}*/
 
-	sort(fakeIds.begin(), fakeIds.end());
+	//sort(fakeIds.begin(), fakeIds.end());
+
+
 	long long count = 0;
 	set<long long> s; 
 	for (auto productIdRange : productIdRanges)
 	{
-		for (auto fakeId : fakeIds)
+		for (long long start = productIdRange.getStart(); start < productIdRange.getEnd(); start++)
 		{
-			if (productIdRange.isInRange(fakeId))
+			if (isFakeNumber(start))
 			{
-				count+=fakeId;
-				s.emplace(fakeId);
+				s.insert(start);
 			}
-			/*else if (productIdRange.getEnd() < fakeId)
-			{
-				break;
-			}*/
 		}
+
+		
 	}
 	//38158151693 too high
 	//cout << accumulate(s.begin(),s.end(),0)
 	cout << "Day 2 part 1: " << count << endl;
 
-	cout << "Day 2 part 1: " << accumulate(s.begin(), s.end(), 0ll) << endl;
+	cout << "Day 2 part 1: " << accumulate(s.begin(), s.end(), 0LL) << endl;
 
 
 	
+}
+
+bool isFakeNumber(long long start)
+{
+	string s1 = to_string(start);
+	if (s1.length() % 2 != 0)
+	{
+		return false; 
+	}
+	for (int i = 0; i < s1.length() / 2; i++)
+	{
+		if (s1[i] != s1[i + s1.length() / 2])
+		{
+			return false; 
+		}
+	}
+	return true; 
 }
 
 vector<ProductId> GetDayTwoInput()
