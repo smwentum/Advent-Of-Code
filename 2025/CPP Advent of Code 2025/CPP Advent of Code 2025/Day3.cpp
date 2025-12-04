@@ -28,12 +28,38 @@ int getBestTwoBatteriesFromBank(string bb)
 	return bestAnswer;
 }
 
+//i am going to guess a leetcode code trick of i think montonic stack (i think i am using the wrong term)
+long long getBestTwelveBatteriesFromBank(string bb)
+{
+	//start from the end 
+	char bigestSecondDigit = bb[bb.length() - 1];
+	long long bestAnswer = 0;
+	for (int i = bb.length() - 2; i >= 0; i--)
+	{
+		string myGuess = { bb[i],bigestSecondDigit };
+		bestAnswer = max(bestAnswer, stoll(myGuess));
+		bigestSecondDigit = max(bb[i], bigestSecondDigit);
+	}
+	return bestAnswer;
+}
+
+void Day3PartTwo()
+{
+	vector<string> batteryBanks = getDay3PartOneInput();
+	int total = 0;
+	for (auto batterybank : batteryBanks)
+	{
+		total += getBestTwoBatteriesFromBank(batterybank);
+	}
+	cout << "Day 3 part 1: " << total << endl;
+}
+
 
 vector<string> getDay3PartOneInput()
 {
 	vector<string> lines; 
 
-	ifstream file("Day3.txt");
+	ifstream file("Day3a.txt");
 	string line; 
 	while (getline(file, line))
 	{
