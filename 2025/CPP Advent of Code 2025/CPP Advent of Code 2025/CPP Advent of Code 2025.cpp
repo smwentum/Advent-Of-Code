@@ -5,6 +5,7 @@
 
 #include "Day1.h"
 #include "Day2.h"
+#include "Day3.h"
 
 using namespace std; 
 
@@ -13,7 +14,10 @@ int main()
 	cout << "Day 1" << endl; 
 	Day1PartOne();
 	Day1PartTwo();
-	cout << "Day2" << endl; 
-	DayTwoPartOne(); 
-	DayTwoPartTwo();
+	cout << "Day 2" << endl; 
+	//DayTwoPartOne(); 
+	cout << "i have day 2, but it slow, just for now i am going to leave it commented out" << endl; 
+	//DayTwoPartTwo();
+	cout << "Day 3" << endl;
+	Day3PartOne(); 
 }
