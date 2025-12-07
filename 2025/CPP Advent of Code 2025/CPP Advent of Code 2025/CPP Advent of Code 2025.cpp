@@ -16,11 +16,12 @@ int main()
 	Day1PartOne();
 	Day1PartTwo();
 	cout << "Day 2" << endl; 
-	//DayTwoPartOne(); 
-	cout << "i have day 2, but it slow, just for now i am going to leave it commented out" << endl; 
+	cout << "i have day 2, but it slow, just for now i am going to leave it commented out" << endl;
+	DayTwoPartOne(); 
 	//DayTwoPartTwo();
 	cout << "Day 3" << endl;
 	Day3PartOne(); 
+	//Day3PartTwo();
 	cout << "Day 2" << endl; 
 	//DayTwoPartOne(); 
 	//DayTwoPartTwo();
