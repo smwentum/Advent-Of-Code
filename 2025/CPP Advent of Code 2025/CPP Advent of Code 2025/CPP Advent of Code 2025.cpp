@@ -18,7 +18,7 @@ int main()
 	Day1PartTwo();
 	cout << "Day 2" << endl; 
 	cout << "i have day 2, but it slow, just for now i am going to leave it commented out" << endl;
-	DayTwoPartOne(); 
+	//DayTwoPartOne(); 
 	//DayTwoPartTwo();
 	cout << "Day 3" << endl;
 	Day3PartOne(); 
@@ -31,4 +31,5 @@ int main()
 
 	cout << "Day 5" << endl; 
 	day5PartOne();
+	day5PartTwo();
 }

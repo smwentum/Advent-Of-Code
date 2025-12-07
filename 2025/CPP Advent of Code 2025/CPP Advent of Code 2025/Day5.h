@@ -5,9 +5,13 @@
 #include<algorithm>
 #include<fstream>
 #include<iostream>
+#include<numeric>
 
 
 #include "Range.h"
 
 void day5PartOne(); 
-void GetInput(std::vector<Range>& ranges, std::vector<long long>& ingrediennts);
+void day5PartTwo();
+void GetInputPartOne(std::vector<Range>& ranges, std::vector<long long>& ingrediennts);
+void GetInputPartTwo(std::vector<Range>& ranges);
+bool findTwoRangesToCombine(std::vector<Range>& ranges);

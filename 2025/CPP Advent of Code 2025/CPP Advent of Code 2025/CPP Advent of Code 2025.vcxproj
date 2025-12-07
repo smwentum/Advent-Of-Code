@@ -158,6 +158,8 @@
     <Text Include="day4a.txt" />
     <Text Include="day5.txt" />
     <Text Include="day5a.txt" />
+    <Text Include="Day5b.txt" />
+    <Text Include="day5c.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
