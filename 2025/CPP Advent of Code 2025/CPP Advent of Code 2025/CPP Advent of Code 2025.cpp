@@ -12,8 +12,8 @@ using namespace std;
 int main()
 {
 	cout << "Day 1" << endl; 
-	//Day1PartOne();
-	//Day1PartTwo();
+	Day1PartOne();
+	Day1PartTwo();
 	cout << "Day 2" << endl; 
 	//DayTwoPartOne(); 
 	//DayTwoPartTwo();
