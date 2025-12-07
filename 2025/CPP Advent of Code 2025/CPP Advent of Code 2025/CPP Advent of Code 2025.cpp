@@ -21,4 +21,5 @@ int main()
 
 	cout << "Day 4" << endl; 
 	day4PartOne();
+	day4PartTwo();
 }

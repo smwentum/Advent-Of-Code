@@ -10,6 +10,15 @@ void day4PartOne()
 
 }
 
+void day4PartTwo()
+{
+	vector<string> lines = GetLines();
+	cout << "Day Four Part Two: " << neighborCheckPt2(lines) << endl;
+
+
+}
+
+
 int neighborCheck(const vector<string>& lines)
 {
 	int cnt = 0;
@@ -20,6 +29,30 @@ int neighborCheck(const vector<string>& lines)
 			if (lines[i][j] == '@' && !isGoodPoint(lines,i,j))
 			{
 				cnt++; 
+			}
+		}
+	}
+	return cnt;
+}
+
+int neighborCheckPt2(vector<string>& lines)
+{
+	int cnt = 0;
+	bool hasChanged = true; 
+
+	while (hasChanged)
+	{
+		hasChanged =false; 
+		for (int i = 0; i < lines.size(); i++)
+		{
+			for (int j = 0; j < lines[i].size(); j++)
+			{
+				if (lines[i][j] == '@' && !isGoodPoint(lines, i, j))
+				{
+					cnt++;
+					lines[i][j] = '.';
+					hasChanged = true;
+				}
 			}
 		}
 	}
