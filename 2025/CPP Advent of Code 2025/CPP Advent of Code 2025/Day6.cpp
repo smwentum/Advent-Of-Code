@@ -36,12 +36,12 @@ void Day6PartOne()
 		total += valOfLine; 
 		
 	}
-	cout << "Day 6 part one" << total << endl; 
+	cout << "Day 6 part one: " << total << endl; 
 }
 
 void getInput(vector<vector<long long>>& nums, vector<string>& ops)
 {
-	ifstream file("Day6a.txt"); 
+	ifstream file("Day6.txt"); 
 
 	string line; 
 
