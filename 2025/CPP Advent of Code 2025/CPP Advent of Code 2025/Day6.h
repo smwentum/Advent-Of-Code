@@ -9,4 +9,6 @@
 #include <numeric>
 
 void Day6PartOne();
-void getInput(std::vector<std::vector<long long>>& nums, std::vector<std::string>& ops);
+void Day6Part2();
+void getDay6Part1Input(std::vector<std::vector<long long>>& nums, std::vector<std::string>& ops);
+void getDay6Part2Input(std::vector<std::vector<long long>>& nums, std::vector<std::string>& ops);

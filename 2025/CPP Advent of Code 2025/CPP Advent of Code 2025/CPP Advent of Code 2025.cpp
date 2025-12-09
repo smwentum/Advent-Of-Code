@@ -36,5 +36,6 @@ int main()
 
 	cout << "Day 6" << endl; 
 	Day6PartOne(); 
+	Day6Part2();
 	
 }
