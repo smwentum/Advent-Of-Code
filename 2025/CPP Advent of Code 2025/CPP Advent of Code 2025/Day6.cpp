@@ -165,7 +165,7 @@ void getDay6Part2Input(vector<vector<long long>>& nums, vector<string>& ops)
 
 
 		}
-		cout << n1 << endl; 
+		//cout << n1 << endl; 
 		if (n1.length() > 0)
 		{
 			nums[nums.size() - 1].push_back(stoll(n1));
