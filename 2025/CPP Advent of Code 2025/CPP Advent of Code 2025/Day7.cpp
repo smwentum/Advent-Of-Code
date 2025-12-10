@@ -1,0 +1,89 @@
+#include "Day7.h"
+
+using namespace std; 
+void Day7PartOne()
+{
+	vector<string> lines;
+	GetDay7PartOneInput(lines);
+	for (auto line : lines)
+	{
+		//cout << line << endl ; 
+	}
+	queue<tuple<int,int>> points; 
+
+	for (int i = 0; i < lines[0].length(); i++)
+	{
+		if (lines[0][i] == 'S')
+		{
+			points.push(tuple<int, int>(0, i));
+			break; 
+		}
+	}
+	int rows = lines.size(); 
+	int cnt = 0;
+	while (points.size() > 0)
+	{
+		tuple<int, int> curr = points.front();
+		points.pop();
+		int currRow = get<0>(curr);
+		int currCol = get<1>(curr);
+		if (currRow >= rows - 1 || currCol < 0 || currCol >= lines[0].size())
+		{
+			continue;
+		}
+		if (lines[currRow + 1][currCol] != '^')
+		{
+			lines[currRow + 1][currCol] = '|';
+			points.push(tuple<int, int>(currRow + 1, currCol));
+			//cnt++;
+
+		}
+		else
+		{
+			if (currCol > 0)
+			{
+				if (lines[currRow + 1][currCol - 1] == '.')
+				{
+					cnt++; 
+				}
+				lines[currRow + 1][currCol - 1] = '|';
+				points.push(tuple<int, int>(currRow + 1, currCol-1));
+				
+			}
+			if (currCol < lines[0].size() - 1)
+			{
+				if (lines[currRow + 1][currCol + 1] == '.')
+				{
+					cnt++;
+				}
+				lines[currRow + 1][currCol + 1] = '|';
+				points.push(tuple<int, int>(currRow + 1, currCol + 1));
+				//cnt++;
+			}
+		}
+	}
+	printGrid(lines);
+	cout << "Day 7 part One: " << cnt << endl; 
+	
+
+}
+
+void printGrid(const vector<string>& lines) 
+{
+	cout << endl; 
+	for (auto line : lines)
+	{
+		cout << line << endl ; 
+	}
+	cout << endl; 
+}
+
+void GetDay7PartOneInput(vector<string>& lines)
+{
+	ifstream file("Day7a.txt");
+	string line; 
+	while (getline(file, line))
+	{
+		lines.push_back(line);
+	}
+}
