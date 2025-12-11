@@ -28,6 +28,10 @@ void Day7PartOne()
 		points.pop();
 		int currRow = get<0>(curr);
 		int currCol = get<1>(curr);
+		if (set.contains(curr))
+		{
+			continue;
+		}
 		set.insert(curr); 
 		if (currRow >= rows - 1 || currCol < 0 || currCol >= lines[0].size())
 		{
@@ -80,7 +84,7 @@ void Day7PartOne()
 
 
 
-	//printGrid(lines);
+	printGrid(lines);
 	cout << "Day 7 part One: " << cnt << endl; 
 	
 
@@ -98,7 +102,7 @@ void printGrid(const vector<string>& lines)
 
 void GetDay7PartOneInput(vector<string>& lines)
 {
-	ifstream file("Day7a.txt");
+	ifstream file("Day7.txt");
 	string line; 
 	while (getline(file, line))
 	{
