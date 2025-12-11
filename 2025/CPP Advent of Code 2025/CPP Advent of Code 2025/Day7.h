@@ -7,6 +7,7 @@
 #include<iostream>
 #include<queue>
 #include<tuple>
+#include<set>
 
 void Day7PartOne();
 void GetDay7PartOneInput(std::vector<std::string>& lines);

@@ -10,6 +10,7 @@ void Day7PartOne()
 		//cout << line << endl ; 
 	}
 	queue<tuple<int,int>> points; 
+	set<tuple<int, int>> set; 
 
 	for (int i = 0; i < lines[0].length(); i++)
 	{
@@ -27,6 +28,7 @@ void Day7PartOne()
 		points.pop();
 		int currRow = get<0>(curr);
 		int currCol = get<1>(curr);
+		set.insert(curr); 
 		if (currRow >= rows - 1 || currCol < 0 || currCol >= lines[0].size())
 		{
 			continue;
@@ -34,35 +36,51 @@ void Day7PartOne()
 		if (lines[currRow + 1][currCol] != '^')
 		{
 			lines[currRow + 1][currCol] = '|';
-			points.push(tuple<int, int>(currRow + 1, currCol));
-			//cnt++;
-
+			if (!set.contains(tuple<int, int>(currRow + 1, currCol)))
+			{
+				points.push(tuple<int, int>(currRow + 1, currCol));
+				//cnt++;
+			}
 		}
 		else
 		{
 			if (currCol > 0)
 			{
-				if (lines[currRow + 1][currCol - 1] == '.')
-				{
-					cnt++; 
-				}
-				lines[currRow + 1][currCol - 1] = '|';
-				points.push(tuple<int, int>(currRow + 1, currCol-1));
+			
 				
+				lines[currRow + 1][currCol - 1] = '|';
+				if (!set.contains(tuple<int, int>(currRow + 1, currCol - 1)))
+				{
+					points.push(tuple<int, int>(currRow + 1, currCol - 1));
+				}
 			}
 			if (currCol < lines[0].size() - 1)
 			{
-				if (lines[currRow + 1][currCol + 1] == '.')
-				{
-					cnt++;
-				}
+				
 				lines[currRow + 1][currCol + 1] = '|';
-				points.push(tuple<int, int>(currRow + 1, currCol + 1));
+				if (!set.contains(tuple<int, int>(currRow + 1, currCol+1)))
+				{
+					points.push(tuple<int, int>(currRow + 1, currCol + 1));
+				}
 				//cnt++;
 			}
 		}
+
 	}
-	printGrid(lines);
+	for (int i = 0; i < lines.size(); i++)
+	{
+		for (int j = 0; j < lines[0].size(); j++)
+		{
+			if (lines[i][j] == '^' && lines[i - 1][j] == '|')
+			{
+				cnt++; 
+			}
+		}
+	}
+
+
+
+	//printGrid(lines);
 	cout << "Day 7 part One: " << cnt << endl; 
 	
 
