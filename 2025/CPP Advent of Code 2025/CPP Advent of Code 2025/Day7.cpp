@@ -1,6 +1,9 @@
 #include "Day7.h"
 
 using namespace std; 
+
+map<tuple<int, int>, long long> maps;
+
 void Day7PartOne()
 {
 	vector<string> lines;
@@ -84,11 +87,74 @@ void Day7PartOne()
 
 
 
-	printGrid(lines);
+	//printGrid(lines);
 	cout << "Day 7 part One: " << cnt << endl; 
 	
 
 }
+
+
+
+void Day7PartTwo() 
+{
+	vector<string> lines;
+	GetDay7PartOneInput(lines);
+	for (auto line : lines)
+	{
+		//cout << line << endl ; 
+	}
+	queue<tuple<int, int>> points;
+	set<tuple<int, int>> set;
+	tuple<int, int> curr; 
+	long long cnt{0};
+	for (int i = 0; i < lines[0].length(); i++)
+	{
+		if (lines[0][i] == 'S')
+		{
+			curr  =  tuple<int, int>(0, i);
+			break;
+		}
+	}
+
+	
+	
+
+
+	//printGrid(lines);
+	cout << "Day 7 part two: " << getAnswer(curr,lines) << endl;
+}
+
+long long getAnswer(tuple<int, int> t, vector<string>& lines)
+{
+
+	if (maps.contains(t))
+	{
+		return maps[t]; 
+	}
+	int currRow = get<0>(t);
+	int currCol = get<1>(t);
+	if (currCol < 0|| currCol >= lines[0].size())
+	{
+		return 0; 
+	}
+	
+	if (currRow >= lines.size() - 2)
+	{
+		maps[t] =  1;
+	}
+	else if (lines[currRow + 1][currCol] == '.')
+	{
+		maps[t] = getAnswer(tuple<int, int>(currRow + 1, currCol),lines);
+	}
+	else if (lines[currRow + 1][currCol] == '^')
+	{
+		maps[t] = getAnswer(tuple<int, int>(currRow + 1, currCol-1), lines) + 
+			getAnswer(tuple<int, int>(currRow + 1, currCol  +1), lines);
+	}
+	return maps[t]; 
+}
+
+
 
 void printGrid(const vector<string>& lines) 
 {
