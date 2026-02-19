@@ -14,6 +14,7 @@ class UnionFind
 		int find(int i);
 		void unite(int i, int j);
 		long long getLargestThreeSizes(); 
+		bool AllConnected();
 		
 	
 };

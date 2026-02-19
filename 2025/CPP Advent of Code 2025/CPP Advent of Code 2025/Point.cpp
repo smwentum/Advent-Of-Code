@@ -21,3 +21,8 @@ long long Point::getId()
 {
 	return this->id;
 }
+
+long long Point::getX()
+{
+	return this->x; 
+}

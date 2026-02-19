@@ -11,6 +11,7 @@
 
 
 void Day8PartOne();
+void Day8PartTwo();
 void GetDay8Input(std::vector<Point>& junctionBoxes);
 std::vector<std::string> split(const std::string& s, char delim);
 

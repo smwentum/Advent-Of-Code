@@ -47,6 +47,6 @@ int main()
 
 	cout << "Day 8" << endl;
 	Day8PartOne();
-
+	Day8PartTwo();
 	
 }

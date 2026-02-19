@@ -79,3 +79,22 @@ long long UnionFind::getLargestThreeSizes()
 	return ans; 
 	
 }
+
+bool UnionFind::AllConnected()
+{
+	for (int i = 0; i < parent.size(); i++)
+	{
+		find(i);
+	}
+
+	for (int i = 1; i < parent.size(); i++)
+	{
+		if (find(0) != find(i))
+		{
+			return false; 
+		}
+	}
+
+	return true; 
+	
+}
