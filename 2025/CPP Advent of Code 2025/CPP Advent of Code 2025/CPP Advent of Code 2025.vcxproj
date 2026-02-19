@@ -135,6 +135,8 @@
     <ClCompile Include="day5.cpp" />
     <ClCompile Include="Day6.cpp" />
     <ClCompile Include="Day7.cpp" />
+    <ClCompile Include="Day8.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="ProductId.cpp" />
     <ClCompile Include="Range.cpp" />
   </ItemGroup>
@@ -146,6 +148,8 @@
     <ClInclude Include="Day5.h" />
     <ClInclude Include="Day6.h" />
     <ClInclude Include="Day7.h" />
+    <ClInclude Include="Day8.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="ProductId.h" />
     <ClInclude Include="Range.h" />
   </ItemGroup>
