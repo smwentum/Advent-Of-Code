@@ -139,6 +139,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="ProductId.cpp" />
     <ClCompile Include="Range.cpp" />
+    <ClCompile Include="UnionFind.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="ProductId.h" />
     <ClInclude Include="Range.h" />
+    <ClInclude Include="UnionFind.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Day1a.txt" />
