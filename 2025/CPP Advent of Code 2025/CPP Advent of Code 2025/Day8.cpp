@@ -38,15 +38,16 @@ void Day8PartOne()
 		}
 	}
 
-	int numberOfBoxesToJoin = 9;
+	int numberOfBoxesToJoin = 1000;
 
 	while (minHeap.size() > 0 && numberOfBoxesToJoin > 0)
 	{
 		tuple<int, int, double> x = minHeap.top();
 		minHeap.pop();
+		numberOfBoxesToJoin--;
 		if (uFind.find(std::get<0>(x)) != uFind.find(std::get<1>(x)))
 		{
-			numberOfBoxesToJoin--;
+			
 			uFind.unite(std::get<0>(x), std::get<1>(x));
 		}
 		else
@@ -66,7 +67,7 @@ void Day8PartOne()
 void GetDay8Input(std::vector<Point>& junctionBoxes)
 {
 
-	ifstream file("Day8a.txt");
+	ifstream file("Day8.txt");
 	string line;
 	int i = 0;
 	while (getline(file, line))
