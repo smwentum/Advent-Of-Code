@@ -3,5 +3,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="Day8a.txt" />
+  </Folder>
   <Project Path="CPP Advent of Code 2025/CPP Advent of Code 2025.vcxproj" Id="cafee1ef-a85c-4ec4-8330-eaeda6071e75" />
 </Solution>
