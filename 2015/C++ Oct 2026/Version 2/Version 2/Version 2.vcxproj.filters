@@ -41,5 +41,6 @@
       <Filter>Text Files</Filter>
     </Text>
     <Text Include="Day1.txt" />
+    <Text Include="day1dpart2.txt" />
   </ItemGroup>
 </Project>

@@ -9,4 +9,5 @@ int main()
 {
     std::cout << "Advent of Code 2015 for testing\n";
     Day1Part1();
+    Day1Part2();
 }

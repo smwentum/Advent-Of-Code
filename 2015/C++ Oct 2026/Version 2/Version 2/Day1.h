@@ -4,6 +4,7 @@
 #include <string_view>
 
 void Day1Part1();
+void Day1Part2();
 std::vector<std::string> GetFile(std::string fileName);
 
 inline auto trimAndConvert(auto&& subrange)
