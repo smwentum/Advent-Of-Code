@@ -64,7 +64,7 @@ void Day2Part1()
 
 void Day2Part2()
 {
-	std::vector<std::string> instructions = getInstructions("day2a.txt");
+	std::vector<std::string> instructions = getInstructions("day2.txt");
 
 	int row = 2;
 	int col = 0;
