@@ -4,10 +4,14 @@
 #include <iostream>
 
 #include "Day1.h"
+#include "Day2.h"
 
 int main()
 {
-    std::cout << "Advent of Code 2015 for testing\n";
+    std::cout << "Advent of Code 2016\n";
     Day1Part1();
     Day1Part2();
+    Day2Part1();
+    Day2Part2();
+
 }
