@@ -30,6 +30,18 @@ void Day4Part1()
 }
 void Day4Part2()
 {
+	std::vector<RoomName> roomNames = getRoomNames("day4.txt");
+
+	for (auto rn : roomNames)
+	{
+		if (rn.getShiftedName().contains("north"))
+		{
+
+			std::cout << "Day 4 part 2: " << rn.getSectorId() << std::endl;
+			break;
+
+		}
+	}
 
 }
 

@@ -73,12 +73,33 @@ void RoomName::setValues()
 	}
 
 
+	std::string s{};
+
+	for (auto part : parts | std::views::take(parts.size() - 1))
+	{
+		for (auto c : part)
+		{
+			s += (char)('a' + (int)(c - 'a' + (sectorId % 26)) % 26);
+		}
+		s += " ";
+		
+
+	}
+
+	this->shifedName = s;
+
+
 
 }
 
 unsigned int RoomName::getSectorId()
 {
 	return this->sectorId;
+}
+
+std::string RoomName::getShiftedName()
+{
+	return this->shifedName;
 }
 
 bool RoomName::DoesMatch() const
