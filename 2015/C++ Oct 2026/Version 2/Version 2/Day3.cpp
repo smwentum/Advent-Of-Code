@@ -15,7 +15,7 @@
 
 void DayThreePartOne()
 {
-	std::vector<Triangle> triangles = GetTrianglesFromFile("Day3a.txt");
+	std::vector<Triangle> triangles = GetTrianglesFromFile("Day3.txt");
 
 	std::cout <<"Day 3 part 1: " << std::ranges::count_if(triangles, std::identity(), &Triangle::isTriangle) << std::endl;
 }
@@ -42,19 +42,21 @@ std::vector<Triangle> GetTrianglesFromFile(std::string fileName)
 
 	while (std::getline(fstream, line))
 	{
-		std::string_view sv = line;
+	
 
-		auto side_lengths = std::views::split(line, ' ')
-			| std::views::transform([](auto&& r) {
-					return std::stoi(std::string( std::string_view(r.begin(), r.end())));
+		auto side_lengths = std::views::split(line, ' ') 
+			| std::views::filter([](auto&& r)
+				{
+					return !r.empty();
 				})
-			| std::ranges::to<std::vector<int>>();
-			
-
-		
-		//std::cout << side_lengths[0] << std::endl; 
-		//std::cout << side_lengths[1] << std::endl;
-		//std::cout << side_lengths[2] << std::endl;
+			| std::views::transform([](auto&& r)
+				{
+					unsigned int value = 0; 
+					std::from_chars(r.data(), r.data() + r.size(), value);
+					return value;
+				})
+			| std::ranges::to<std::vector<unsigned int>>();
+		std::cout << side_lengths[0] << " " << side_lengths[1] << " " << side_lengths[2] << std::endl;
 		triangles.push_back(Triangle(side_lengths[0], side_lengths[1], side_lengths[2]));
 		
 	}
