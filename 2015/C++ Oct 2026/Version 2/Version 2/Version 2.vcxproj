@@ -144,6 +144,7 @@
     <ClCompile Include="Day3.cpp" />
     <ClCompile Include="Day4.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RoomName.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="Day2.h" />
     <ClInclude Include="Day3.h" />
     <ClInclude Include="Day4.h" />
+    <ClInclude Include="RoomName.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
