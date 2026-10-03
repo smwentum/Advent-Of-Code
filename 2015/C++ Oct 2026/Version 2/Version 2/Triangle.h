@@ -15,6 +15,8 @@ class Triangle
 		bool isTriangle() const; 
 
 
+		bool isTrianglePt2() const;
+
 
 
 };

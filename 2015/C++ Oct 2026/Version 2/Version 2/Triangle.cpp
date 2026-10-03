@@ -18,3 +18,15 @@ bool Triangle::isTriangle() const
 	}
 		return true; 
 }
+
+bool Triangle::isTrianglePt2() const
+{
+	if (side1/100 !=  side2/100 
+		|| side1 / 100 != side3 / 100
+		|| side2 / 100 != side3 / 100
+		)
+	{
+		return false;
+	}
+	return true;
+}
