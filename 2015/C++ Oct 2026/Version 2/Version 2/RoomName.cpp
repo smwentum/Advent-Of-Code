@@ -49,7 +49,7 @@ void RoomName::setValues()
 	std::ranges::partial_sort_copy(charMap, top_n,
 		[](const auto& a,
 			const auto& b) {
-				return a.second > b.second; 
+				return std::tie(a.second, b.first) > std::tie(b.second, a.first);
 		});
 
 	//this will set ties
@@ -74,6 +74,11 @@ void RoomName::setValues()
 
 
 
+}
+
+unsigned int RoomName::getSectorId()
+{
+	return this->sectorId;
 }
 
 bool RoomName::DoesMatch() const

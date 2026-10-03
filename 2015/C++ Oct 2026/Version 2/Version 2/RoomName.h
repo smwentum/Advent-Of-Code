@@ -15,6 +15,7 @@ class RoomName
 	public:
 		RoomName(std::string roomName);
 		bool DoesMatch() const; 
+		unsigned int getSectorId();
 		
 
 };
