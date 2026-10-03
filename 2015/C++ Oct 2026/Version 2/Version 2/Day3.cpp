@@ -26,7 +26,7 @@ void DayThreePartTwo()
 {
 	std::vector<Triangle> triangles = GetTrianglesFromFilePart2("day3.txt");
 
-	std::cout << "Day 3 part 2: " << std::ranges::count_if(triangles, std::identity(), &Triangle::isTrianglePt2) << std::endl;
+	std::cout << "Day 3 part 2: " << std::ranges::count_if(triangles, std::identity(), &Triangle::isTriangle) << std::endl;
 }
 
 
@@ -113,7 +113,7 @@ std::vector<Triangle> GetTrianglesFromFilePart2(std::string fileName)
 	}
 	for (int j = 0; j < 3; j++)
 	{
-		for (int i = 0; i < sideLengths.size()-3; i+=3)
+		for (int i = 0; i < sideLengths.size(); i+=3)
 		{
 			triangles.push_back(Triangle(sideLengths[i][j], sideLengths[i + 1][j], sideLengths[i + 2][j]));
 		}
