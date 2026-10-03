@@ -12,14 +12,14 @@
 
 void Day4Part1()
 {
-	std::vector<RoomName> roomNames = getRoomNames("day4a.txt");
+	std::vector<RoomName> roomNames = getRoomNames("day4.txt");
 	unsigned int total = std::accumulate(roomNames.begin(), roomNames.end(), 0,
 		[](unsigned int total, RoomName rn) {
 
 			if (rn.DoesMatch())
 			{
 				total += rn.getSectorId();
-				std::cout << rn.getSectorId() << std::endl;
+				//std::cout << rn.getSectorId() << std::endl;
 			}
 
 

@@ -62,7 +62,7 @@ void RoomName::setValues()
 
 	this->stringCheckSum = std::string(topKeys.begin(), topKeys.end());
 
-	std::cout << parts[parts.size() - 1] << std::endl; 
+	//std::cout << parts[parts.size() - 1] << std::endl; 
 
 	size_t index = parts[parts.size() - 1].find("[");
 	if (index != std::string::npos)
