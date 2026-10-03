@@ -126,7 +126,7 @@ void Day2Part2()
 		std::cout << map[row][col];// << std::endl << std::endl;
 
 	}
-	//std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 
