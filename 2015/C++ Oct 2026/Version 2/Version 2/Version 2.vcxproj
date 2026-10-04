@@ -170,6 +170,7 @@
     <Text Include="day4.txt" />
     <Text Include="day4a.txt" />
     <Text Include="day4b.txt" />
+    <Text Include="day6.txt" />
     <Text Include="day6a.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

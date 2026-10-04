@@ -10,7 +10,7 @@
 
 void Day6Part1()
 {
-	std::vector<std::string> lines = getLines("day6a.txt");
+	std::vector<std::string> lines = getLines("day6.txt");
 	std::cout << "Day 6 part 1: ";
 	for (int col = 0; col < lines[0].size(); col++)
 	{
