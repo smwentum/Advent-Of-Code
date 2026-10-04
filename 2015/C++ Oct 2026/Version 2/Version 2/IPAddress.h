@@ -17,6 +17,7 @@ class IPAddress
 	public:
 		IPAddress(std::string line);
 		bool IsTLS();
+		bool IsSSL();
 
 		std::string line;
 };

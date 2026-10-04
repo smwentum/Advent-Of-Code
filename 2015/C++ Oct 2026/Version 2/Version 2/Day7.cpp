@@ -25,7 +25,10 @@ void Day7Part1()
 }
 void Day7Part2()
 {
-
+	vector<IPAddress> lines = getLinesFromFile("Day7.txt");
+	cout << "Day 7 part 2: " << std::count_if(lines.begin(), lines.end(), [](auto&& l) {
+		return l.IsSSL();
+		}) << endl;
 }
 
 vector<IPAddress> getLinesFromFile(string fileName)

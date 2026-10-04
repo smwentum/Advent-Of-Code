@@ -8,6 +8,7 @@
 #include<string>
 #include<string_view>
 #include<ranges>
+#include<set>
 #include<vector>
 
 
@@ -57,4 +58,46 @@ bool IPAddress::IsTLS()
 {
 	return std::ranges::any_of(this->SupernetSequences, IsABBA)
 		&& !std::ranges::any_of(this->HyperTextSequences, IsABBA);
+}
+
+bool IPAddress::IsSSL()
+{
+	//get list of abas from supertext
+	std::set<string> aba{};
+	
+	for (int j = 0; j < SupernetSequences.size(); j++)
+	{
+		line = SupernetSequences[j];
+
+		for (int i = 0; i < line.length() - 2; i++)
+		{
+			if (line[i] == line[i + 2] && line[i] != line[i + 1])
+			{
+				aba.insert(line.substr(i, 3));
+			}
+		}
+	}
+
+	for (int j = 0; j < HyperTextSequences.size(); j++)
+	{
+		line = HyperTextSequences[j];
+
+		for (int i = 0; i < line.length() - 2; i++)
+		{
+			if (line[i] == line[i + 2] && line[i] != line[i + 1])
+			{
+				string s1{};
+				s1 += line[i + 1];
+				s1 += line[i];
+				s1 += line[i + 1];
+				if (aba.contains(s1))
+				{
+					return true;
+				}
+			}
+		}
+	}
+
+	return false; 
+
 }
