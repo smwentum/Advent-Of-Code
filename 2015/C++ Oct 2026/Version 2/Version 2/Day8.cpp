@@ -3,24 +3,31 @@
 #include<algorithm>
 #include<fstream>
 #include<iostream>
+#include<string>
 #include<vector>
 
 
+using std::string;
 using std::vector; 
 using std::cout;
 using std::endl;
 
 
+const int ROWS{ 6 };
+const int COLS{ 50 };
+
 void Day8Part1()
 {
-	const int ROWS{ 6 };
-	const int COLS{ 50 };
+
 
 	vector<vector<char>>  littleScreen(ROWS, vector<char>(COLS, 'o'));
 
 	printScreen(littleScreen);
 
 
+	vector<string> linesFromFile{}; 
+
+	getLinesFromFile("day8a.txt", &linesFromFile);
 	
 
 }
@@ -46,4 +53,21 @@ void printScreen(const vector<vector<char>>& littleScreen)
 
 	cout << endl;
 	cout << endl; 
+}
+
+void getLinesFromFile(string fileName, vector<string>* lines)
+{
+	std::ifstream file(fileName);
+
+	if (!file.is_open())
+	{
+		cout << "can't open file" << endl; 
+	}
+
+	string line; 
+	while (std::getline(file, line))
+	{
+		lines->push_back(line);
+	}
+
 }
