@@ -18,12 +18,15 @@ using std::endl;
 
 const int ROWS{ 6 };
 const int COLS{ 50 };
+const char OFF{ '.' };
+const char ON{ '#' };
+
 
 void Day8Part1()
 {
 
 
-	vector<vector<char>>  littleScreen(ROWS, vector<char>(COLS, 'o'));
+	vector<vector<char>>  littleScreen(ROWS, vector<char>(COLS, OFF));
 
 	//printScreen(littleScreen);
 
@@ -32,23 +35,26 @@ void Day8Part1()
 
 	getLinesFromFile("day8a.txt", &linesFromFile);
 
+	//refactor this into a different function 
 	for(auto line: linesFromFile)
 	{
 		cout << line << endl << endl; 
 
 		auto parts = std::views::split(line, ' ') | std::ranges::to<vector<string>>();
 
-		string command = parts[0];
-		cout << command << endl;
+		//string command = parts[0];
+		//cout << command << endl;
 
-		if (command == "rect")
+		if (parts[0] == "rect")
 		{
 			int fillCols = stoi(parts[1].substr(0, parts[1].find('x')));
 			int fillrows = stoi(parts[1].substr(parts[1].find('x') + 1));
 			//cout << "rows " << fillrows << " cols: " << fillCols << endl;
 
-
+			rect(fillrows, fillCols, &littleScreen);
+			printScreen(littleScreen);
 		}
+		
 
 	}
 	
@@ -57,6 +63,17 @@ void Day8Part1()
 void Day8Part2()
 {
 	
+}
+
+void rect(int rows, int cols, vector<vector<char>>* screen)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			(*screen)[i][j] = ON;
+		}
+	}
 }
 
 void printScreen(const vector<vector<char>>& littleScreen)
