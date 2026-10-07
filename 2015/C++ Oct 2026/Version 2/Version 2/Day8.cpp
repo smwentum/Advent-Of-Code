@@ -16,8 +16,8 @@ using std::cout;
 using std::endl;
 
 
-const int ROWS{ 6 };
-const int COLS{ 50 };
+const int ROWS{ 3 }; //6
+const int COLS{ 7 }; //50
 const char OFF{ '.' };
 const char ON{ '#' };
 
@@ -54,7 +54,14 @@ void Day8Part1()
 			rect(fillrows, fillCols, &littleScreen);
 			printScreen(littleScreen);
 		}
-		
+		else if (parts[1] == "row")
+		{
+			int rotateBy = stoi(parts[4]); 
+			int rotateRow1 = stoi(parts[2].substr(parts[2].find("=") + 1));
+			rotateRow(&littleScreen, rotateRow1, rotateBy); 
+			printScreen(littleScreen);
+		}
+
 
 	}
 	
@@ -74,6 +81,30 @@ void rect(int rows, int cols, vector<vector<char>>* screen)
 			(*screen)[i][j] = ON;
 		}
 	}
+}
+
+void rotateRow(vector<vector<char>>* screen, int row, int rotateBy)
+{
+	vector<char> rowFromMatrix = (*screen)[row];
+	/*for (int i = 0; i < rotateBy % ROWS; i++)
+	{
+		
+	}*/
+
+	//refactor this at some point
+	for (int i = 0; i < rotateBy; i++)
+	{
+		vector<char> computedVector{};
+		computedVector.push_back(rowFromMatrix[rowFromMatrix.size() - 1]); 
+		for (int i = 0; i < rowFromMatrix.size() - 1; i++)
+		{
+			computedVector.push_back(rowFromMatrix[i]);
+		}
+
+		rowFromMatrix = computedVector; 
+	}
+	
+	(*screen)[row] = rowFromMatrix;
 }
 
 void printScreen(const vector<vector<char>>& littleScreen)
