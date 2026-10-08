@@ -62,6 +62,14 @@ void Day8Part1()
 			printScreen(littleScreen);
 		}
 
+		else if (parts[1] == "column")
+		{
+			int rotateBy = stoi(parts[4]);
+			int rotateRow1 = stoi(parts[2].substr(parts[2].find("=") + 1));
+			rotateCol(& littleScreen, rotateRow1, rotateBy);
+			printScreen(littleScreen);
+		}
+
 
 	}
 	
@@ -105,6 +113,34 @@ void rotateRow(vector<vector<char>>* screen, int row, int rotateBy)
 	}
 	
 	(*screen)[row] = rowFromMatrix;
+}
+
+void rotateCol(vector<vector<char>>* screen, int col, int rotateBy)
+{
+	vector<char> colFromMatrix{}; 
+
+	for (int i = 0; i < ROWS; i++)
+	{
+		colFromMatrix.push_back((*screen) [i][col]);
+	}
+
+	for (int i = 0; i < rotateBy; i++)
+	{
+		vector<char> computedVector{};
+		computedVector.push_back(colFromMatrix[colFromMatrix.size() - 1]);
+		for (int i = 0; i < colFromMatrix.size() - 1; i++)
+		{
+			computedVector.push_back(colFromMatrix[i]);
+		}
+
+		colFromMatrix = computedVector;
+	}
+
+	for (int i = 0; i < ROWS; i++)
+	{
+		(*screen)[i][col] = colFromMatrix[i];
+	}
+	
 }
 
 void printScreen(const vector<vector<char>>& littleScreen)
