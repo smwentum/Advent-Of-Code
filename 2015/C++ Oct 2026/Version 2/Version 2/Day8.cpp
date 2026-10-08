@@ -16,8 +16,8 @@ using std::cout;
 using std::endl;
 
 
-const int ROWS{ 3 }; //6
-const int COLS{ 7 }; //50
+const int ROWS{ 6 }; //6
+const int COLS{ 50 }; //50
 const char OFF{ '.' };
 const char ON{ '#' };
 
@@ -33,12 +33,12 @@ void Day8Part1()
 
 	vector<string> linesFromFile{}; 
 
-	getLinesFromFile("day8a.txt", &linesFromFile);
+	getLinesFromFile("day8.txt", &linesFromFile);
 
 	//refactor this into a different function 
 	for(auto line: linesFromFile)
 	{
-		cout << line << endl << endl; 
+		//cout << line << endl << endl; 
 
 		auto parts = std::views::split(line, ' ') | std::ranges::to<vector<string>>();
 
@@ -52,26 +52,28 @@ void Day8Part1()
 			//cout << "rows " << fillrows << " cols: " << fillCols << endl;
 
 			rect(fillrows, fillCols, &littleScreen);
-			printScreen(littleScreen);
+			//printScreen(littleScreen);
 		}
 		else if (parts[1] == "row")
 		{
 			int rotateBy = stoi(parts[4]); 
 			int rotateRow1 = stoi(parts[2].substr(parts[2].find("=") + 1));
 			rotateRow(&littleScreen, rotateRow1, rotateBy); 
-			printScreen(littleScreen);
+			//printScreen(littleScreen);
 		}
 
 		else if (parts[1] == "column")
 		{
 			int rotateBy = stoi(parts[4]);
 			int rotateRow1 = stoi(parts[2].substr(parts[2].find("=") + 1));
-			rotateCol(& littleScreen, rotateRow1, rotateBy);
-			printScreen(littleScreen);
+			rotateCol(&littleScreen, rotateRow1, rotateBy);
+			//printScreen(littleScreen);
 		}
 
+		
 
 	}
+	cout << "Day 8 part 1: " << getCountOfOnPixles(littleScreen) << endl;
 	
 
 }
@@ -177,4 +179,23 @@ void getLinesFromFile(string fileName, vector<string>* lines)
 		lines->push_back(line);
 	}
 
+}
+
+
+int getCountOfOnPixles(const vector<vector<char>>& littleScreen)
+{
+	int count{ 0 };
+
+	for (int i = 0; i < littleScreen.size(); i++)
+	{
+		for (int j = 0; j < littleScreen[0].size(); j++)
+		{
+			if (littleScreen[i][j] == ON)
+			{
+				count++;
+			}
+		}
+	}
+
+	return count; 
 }
