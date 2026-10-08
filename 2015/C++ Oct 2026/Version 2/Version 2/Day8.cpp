@@ -79,7 +79,59 @@ void Day8Part1()
 }
 void Day8Part2()
 {
-	
+	vector<vector<char>>  littleScreen(ROWS, vector<char>(COLS, OFF));
+
+	//printScreen(littleScreen);
+
+
+	vector<string> linesFromFile{};
+
+	getLinesFromFile("day8.txt", &linesFromFile);
+
+	//refactor this into a different function 
+	for (auto line : linesFromFile)
+	{
+		//cout << line << endl << endl; 
+
+		auto parts = std::views::split(line, ' ') | std::ranges::to<vector<string>>();
+
+		//string command = parts[0];
+		//cout << command << endl;
+
+		if (parts[0] == "rect")
+		{
+			int fillCols = stoi(parts[1].substr(0, parts[1].find('x')));
+			int fillrows = stoi(parts[1].substr(parts[1].find('x') + 1));
+			//cout << "rows " << fillrows << " cols: " << fillCols << endl;
+
+			rect(fillrows, fillCols, &littleScreen);
+			//printScreen(littleScreen);
+		}
+		else if (parts[1] == "row")
+		{
+			int rotateBy = stoi(parts[4]);
+			int rotateRow1 = stoi(parts[2].substr(parts[2].find("=") + 1));
+			rotateRow(&littleScreen, rotateRow1, rotateBy);
+			//printScreen(littleScreen);
+		}
+
+		else if (parts[1] == "column")
+		{
+			int rotateBy = stoi(parts[4]);
+			int rotateRow1 = stoi(parts[2].substr(parts[2].find("=") + 1));
+			rotateCol(&littleScreen, rotateRow1, rotateBy);
+			//printScreen(littleScreen);
+		}
+
+
+
+	}
+	cout << "Day 8 part 2: " << endl << endl;
+
+	printScreen(littleScreen);
+
+	cout << endl << endl;
+
 }
 
 void rect(int rows, int cols, vector<vector<char>>* screen)
