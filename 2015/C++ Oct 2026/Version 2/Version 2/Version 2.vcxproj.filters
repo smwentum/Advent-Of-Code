@@ -18,13 +18,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Version 2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Day1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Day2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IPAddress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomName.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -33,6 +60,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Day2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPAddress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomName.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,5 +104,23 @@
     <Text Include="day1dpart2.txt" />
     <Text Include="day2a.txt" />
     <Text Include="day2.txt" />
+    <Text Include="day3.txt" />
+    <Text Include="Day3a.txt" />
+    <Text Include="day4.txt" />
+    <Text Include="day4a.txt" />
+    <Text Include="day4b.txt" />
+    <Text Include="day6.txt" />
+    <Text Include="day6a.txt" />
+    <Text Include="Day7.txt" />
+    <Text Include="day7a.txt" />
+    <Text Include="Day8.txt" />
+    <Text Include="Day8a.txt" />
+    <Text Include="Day9B.txt" />
+    <Text Include="Day9a.txt" />
+    <Text Include="Day9c.txt" />
+    <Text Include="day9d.txt" />
+    <Text Include="day9f.txt" />
+    <Text Include="day9e.txt" />
+    <Text Include="day9.txt" />
   </ItemGroup>
 </Project>
