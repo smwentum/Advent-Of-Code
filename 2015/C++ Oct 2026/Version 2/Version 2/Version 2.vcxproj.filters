@@ -122,5 +122,9 @@
     <Text Include="day9f.txt" />
     <Text Include="day9e.txt" />
     <Text Include="day9.txt" />
+    <Text Include="day9pt2a.txt" />
+    <Text Include="day9pt2b.txt" />
+    <Text Include="day9pt2c.txt" />
+    <Text Include="day9pt2d.txt" />
   </ItemGroup>
 </Project>

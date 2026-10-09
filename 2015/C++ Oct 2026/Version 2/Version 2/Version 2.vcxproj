@@ -157,6 +157,10 @@
     <Text Include="Day9c.txt" />
     <Text Include="day9d.txt" />
     <Text Include="day9f.txt" />
+    <Text Include="day9pt2a.txt" />
+    <Text Include="day9pt2b.txt" />
+    <Text Include="day9pt2c.txt" />
+    <Text Include="day9pt2d.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h" />
