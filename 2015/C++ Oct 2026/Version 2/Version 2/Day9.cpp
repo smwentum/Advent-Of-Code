@@ -40,7 +40,7 @@ void Day9Part1()
 				i += marker.size() + length-1;
 				//cout << i; 
 
-			}
+			} 
 				//cout << "repeat amount: " << marker.substr(marker.find('x')+1 , marker.find(')') - (marker.find('x') + 1) ) << endl;
 
 			
