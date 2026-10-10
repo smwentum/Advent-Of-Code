@@ -11,6 +11,7 @@
 #include "Day7.h"
 #include "Day8.h"
 #include "day9.h"
+#include "day10.h"
 
 int main()
 {
@@ -31,5 +32,7 @@ int main()
     Day8Part2();
     Day9Part1();
     Day9Part2();
+    Day10Part1(); 
+    Day10Part2();
 
 }
