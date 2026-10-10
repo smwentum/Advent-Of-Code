@@ -146,10 +146,21 @@
     <ClCompile Include="Day6.cpp" />
     <ClCompile Include="Day7.cpp" />
     <ClCompile Include="Day8.cpp" />
+    <ClCompile Include="Day9.cpp" />
+    <Text Include="day9.txt" />
+    <Text Include="Day9a.txt" />
+    <Text Include="day9e.txt" />
     <ClCompile Include="IPAddress.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RoomName.cpp" />
     <ClCompile Include="Triangle.cpp" />
+    <Text Include="Day9c.txt" />
+    <Text Include="day9d.txt" />
+    <Text Include="day9f.txt" />
+    <Text Include="day9pt2a.txt" />
+    <Text Include="day9pt2b.txt" />
+    <Text Include="day9pt2c.txt" />
+    <Text Include="day9pt2d.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h" />
@@ -159,6 +170,7 @@
     <ClInclude Include="Day6.h" />
     <ClInclude Include="Day7.h" />
     <ClInclude Include="Day8.h" />
+    <ClInclude Include="Day9.h" />
     <ClInclude Include="IPAddress.h" />
     <ClInclude Include="RoomName.h" />
     <ClInclude Include="Triangle.h" />
@@ -182,6 +194,7 @@
     <Text Include="day7a.txt" />
     <Text Include="Day8.txt" />
     <Text Include="Day8a.txt" />
+    <Text Include="Day9B.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
