@@ -46,7 +46,7 @@ void Day9Part1()
 }
 void Day9Part2()
 {
-	string fileName{ "Day9pt2d.txt" };
+	string fileName{ "Day9.txt" };
 	string line = getFileLine(fileName);
 
 	// cout << line << endl;
@@ -63,7 +63,7 @@ void Day9Part2()
 			{
 
 				string marker = line.substr(i, rightBrace - i + 1);
-				int length{ std::stoi(marker.substr(1, marker.find('x') - 1)) };
+				long long length{ std::stoi(marker.substr(1, marker.find('x') - 1)) };
 
 
 				string data{ line.substr(rightBrace + 1, length) };
@@ -109,20 +109,22 @@ long long getLength(string line )
 			{
 
 				string marker = line.substr(i, rightBrace - i + 1);
-				int length{ std::stoi(marker.substr(1, marker.find('x') - 1)) };
+				long long length{ std::stoi(marker.substr(1, marker.find('x') - 1)) };
 
 
 				string data{ line.substr(rightBrace + 1, length) };
+				i += marker.size() + length - 1;
 				if (!data.contains("("))
 				{
 					int repeatAmount{ std::stoi(marker.substr(marker.find('x') + 1 , marker.find(')') - (marker.find('x') + 1))) };
 					count += length * repeatAmount;
-					i += marker.size() + length - 1;
+					
+					//break;
 					//return count;
 				}
 				else
 				{
-					int repeatAmount{ std::stoi(marker.substr(marker.find('x') + 1 , marker.find(')') - (marker.find('x') + 1))) };
+					long long repeatAmount{ std::stoll(marker.substr(marker.find('x') + 1 , marker.find(')') - (marker.find('x') + 1))) };
 					length = getLength(data);
 					count += length * repeatAmount;
 					//return count; 
@@ -132,10 +134,11 @@ long long getLength(string line )
 
 				//cout << line.substr(rightBrace + 1, length) << endl; 
 			}
-			else
-			{
-				count++;
-			}
+			
+		}
+		else
+		{
+			count++;
 		}
 	}
 	return count; 
