@@ -15,6 +15,7 @@ class Bot
 		bool CanGiveAway();
 		bool CanRecieve(); 
 		int getChip();
+		int getChipCount();
 		std::tuple<int, int> GetHigh();
 		std::tuple<int, int> GetLow();
 

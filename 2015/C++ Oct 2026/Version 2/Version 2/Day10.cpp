@@ -143,13 +143,21 @@ void Day10Part2()
 			{
 				std::tuple<int, int> high = b->GetHigh();
 				std::tuple<int, int> low = b->GetLow();
-				if (std::get<1>(low) == 17 && std::get<1>(high) == 61)
-				{
-					cout << "Day 10 part 2: " << bots[0].getChip()* bots[1].getChip() * bots[2].getChip() << endl;
-				}
+			
 				bots[std::get<0>(high)].AddValue(std::get<1>(high));
 				bots[std::get<0>(low)].AddValue(std::get<1>(low));
 				b->GiveAway();
+				if (bots[0].getChipCount() ==1
+					&& bots[1].getChipCount() == 1
+					&& bots[2].getChipCount() == 1
+					)
+				{
+					int v0 = bots[0].getChip();
+					int v1 = bots[1].getChip();
+					int v2 = bots[2].getChip(); 
+					cout << "Day 10 part 2: " << v0*v1*v2 << endl;
+
+				}
 
 
 			}

@@ -22,7 +22,11 @@ int Bot::getId()
 }
 int Bot::getChip()
 {
-	return this->val[1];
+	return this->val[0];
+}
+int Bot::getChipCount()
+{
+	return this->val.size();
 }
 
 void Bot::AddValue(int v)
