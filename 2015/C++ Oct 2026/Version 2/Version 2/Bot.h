@@ -1,14 +1,16 @@
 #pragma once
 
+#include<string>
 #include<tuple>
 #include<vector>
+
 
 class Bot
 {
 
 	public:
 
-		Bot(int id, int low, int high);
+		Bot(int id, std::tuple<std::string, int> low, std::tuple<std::string,int> high);
 		void AddValue(int val);
 		void GiveAway();
 		int getId();
@@ -16,14 +18,14 @@ class Bot
 		bool CanRecieve(); 
 		int getChip();
 		int getChipCount();
-		std::tuple<int, int> GetHigh();
-		std::tuple<int, int> GetLow();
+		std::tuple<std::string, int, int> GetHigh();
+		std::tuple<std::string, int, int> GetLow();
 
 
 	private:
 		int id; 
-		int high; 
-		int low; 
+		std::tuple<std::string, int> high;
+		std::tuple<std::string, int> low;
 		std::vector<int> val{};
 };
 

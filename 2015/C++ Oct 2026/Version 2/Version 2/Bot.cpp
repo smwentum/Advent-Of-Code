@@ -2,16 +2,19 @@
 
 
 #include <algorithm>
+#include<string>
 #include <tuple>
 #include <vector>
 
+using std::string;
 
 
-Bot::Bot(int id, int low, int high)
+Bot::Bot(int id, std::tuple<std::string, int> low, std::tuple<std::string, int> high)
 {
 	this->id = id;
+
 	this->low = low; 
-	this->high = high; 
+	this->high = high;
 
 
 }
@@ -56,18 +59,18 @@ bool Bot::CanRecieve()
 	return this->val.size() < 2;
 }
 
-std::tuple<int,int> Bot::GetHigh()
+std::tuple<std::string, int, int> Bot::GetHigh()
 {
 	if (CanGiveAway())
 	{
-		return std::tuple<int,int>(this->high, this->val[1]);
+		return std::tuple<std::string,int,int>(std::get<0>(this->high), std::get<1>(this->high), this->val[1]);
 	}
 }
 
-std::tuple<int, int> Bot::GetLow()
+std::tuple<std::string, int, int> Bot::GetLow()
 {
 	if (CanGiveAway())
 	{
-		return std::tuple<int, int>(this->low, this->val[0]);
+		return std::tuple<std::string,int, int>(std::get<0>(this->low), std::get<1>(this->low), this->val[0]);
 	}
 }
