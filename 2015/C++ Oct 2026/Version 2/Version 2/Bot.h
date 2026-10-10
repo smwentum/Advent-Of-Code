@@ -14,6 +14,7 @@ class Bot
 		int getId();
 		bool CanGiveAway();
 		bool CanRecieve(); 
+		int getChip();
 		std::tuple<int, int> GetHigh();
 		std::tuple<int, int> GetLow();
 

@@ -20,6 +20,10 @@ int Bot::getId()
 {
 	return this->id;
 }
+int Bot::getChip()
+{
+	return this->val[1];
+}
 
 void Bot::AddValue(int v)
 {
