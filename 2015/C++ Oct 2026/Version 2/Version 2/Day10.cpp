@@ -22,7 +22,7 @@ void Day10Part1()
 {
 
 	vector<string> lines{};
-	getLines("Day10a.txt", lines);
+	getLines("Day10.txt", lines);
 	int maxNumberOfBots{ 0 };
 
 	//for (auto line : lines)
@@ -91,9 +91,9 @@ void Day10Part1()
 			{
 				std::tuple<int, int> high = b->GetHigh(); 
 				std::tuple<int, int> low = b->GetLow(); 
-				cout << "Name :" << b->getId() << endl;
-				cout << "High " << std::get<0>(high) << " " << std::get<1>(high) << endl;
-				cout << "Low " << std::get<0>(low) << " " << std::get<1>(low) << endl;
+				//cout << "Name :" << b->getId() << endl;
+				//cout << "High " << std::get<0>(high) << " " << std::get<1>(high) << endl;
+				//cout << "Low " << std::get<0>(low) << " " << std::get<1>(low) << endl;
 				if (std::get<1>(low) == 17 && std::get<1>(high) == 61)
 				{
 					cout  << "Day 10 part 1: " <<  b->getId() << endl;
