@@ -149,6 +149,7 @@
     <ClCompile Include="Day7.cpp" />
     <ClCompile Include="Day8.cpp" />
     <ClCompile Include="Day9.cpp" />
+    <Text Include="day10.txt" />
     <Text Include="Day10a.txt" />
     <Text Include="day9.txt" />
     <Text Include="Day9a.txt" />

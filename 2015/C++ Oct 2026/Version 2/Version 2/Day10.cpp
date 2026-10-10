@@ -62,6 +62,7 @@ void Day10Part1()
 		}
 	}
 
+	std::sort(bots.begin(), bots.end(), [](Bot& b1, Bot&b2) { return b1.getId() < b2.getId(); });
 
 	for (auto line : lines)
 	{
@@ -71,7 +72,7 @@ void Day10Part1()
 		{
 			int id = std::stoi(parts[5]);
 			int val = std::stoi(parts[1]);
-			bots[id-1].AddValue(val);
+			bots[id].AddValue(val);
 
 		}
 	}
@@ -93,9 +94,14 @@ void Day10Part1()
 				cout << "Name :" << b->getId() << endl;
 				cout << "High " << std::get<0>(high) << " " << std::get<1>(high) << endl;
 				cout << "Low " << std::get<0>(low) << " " << std::get<1>(low) << endl;
+				if (std::get<1>(low) == 17 && std::get<1>(high) == 61)
+				{
+					cout  << "Day 10 part 1: " <<  b->getId() << endl;
+				}
 				bots[std::get<0>(high) ].AddValue(std::get<1>(high));
 				bots[std::get<0>(low)].AddValue(std::get<1>(low));
 				b->GiveAway();
+
 				
 			}
 

@@ -54,6 +54,12 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
@@ -87,6 +93,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day10.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -126,5 +138,7 @@
     <Text Include="day9pt2b.txt" />
     <Text Include="day9pt2c.txt" />
     <Text Include="day9pt2d.txt" />
+    <Text Include="Day10a.txt" />
+    <Text Include="day10.txt" />
   </ItemGroup>
 </Project>
