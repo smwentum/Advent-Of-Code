@@ -18,7 +18,7 @@ using std::endl;
 void Day12Part1()
 {
 	vector <string> lines{}; 
-	GetLinesFromFile("Day12a.txt",lines);
+	GetLinesFromFile("Day12.txt",lines);
 	vector<vector<string>> splitlines{};
 	int i = 0; 
 	std::unordered_map<char,int> map{};
