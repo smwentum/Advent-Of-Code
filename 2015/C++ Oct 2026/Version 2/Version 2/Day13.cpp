@@ -22,7 +22,7 @@ void Day13Part1()
 {
 	vector<string> maze{}; 
 
-	createMaze(maze);
+	//createMaze(maze);
 
 	//now that the map is created get 
 
@@ -40,7 +40,16 @@ void Day13Part1()
 
 void Day13Part2()
 {
+	vector<string> maze{};
 
+	//createMaze(maze);
+
+	//now that the map is created get 
+
+	long long answer{ BFSPt2() };
+
+	//134 is too high
+	cout << "Day 13 part 2: " << answer << endl;
 }
 
 
@@ -161,6 +170,84 @@ long long BFS()
 
 
 }
+
+
+long long BFSPt2()
+{
+	std::unordered_map<std::tuple<int, int>, int, TupleHash> vistedPoints{};
+
+	std::tuple<int, int> startPoint(1, 1);
+	std::tuple<int, int> sentinle(-1, -1);
+	//std::tuple<int, int> endPoint(31, 39);
+
+	std::queue<std::tuple<int, int>> queue{};
+
+	queue.push(startPoint);
+	queue.push(sentinle);
+	long long distance{ 0 };
+
+	while (queue.size() > 0)
+	{
+		std::tuple<int, int> currentPoint = queue.front();
+		queue.pop();
+
+		if (!vistedPoints.contains(currentPoint))
+		{
+			if (currentPoint == sentinle)
+			{
+				if (queue.size() == 0)
+				{
+					break;
+				}
+				else if (distance == 50)
+				{
+					break; 
+				}
+				else
+				{
+					distance++;
+					queue.push(sentinle);
+				}
+			}
+			else
+			{
+				vistedPoints[currentPoint] = distance;
+
+				
+
+				int row{ std::get<0>(currentPoint) };
+				int col{ std::get<1>(currentPoint) };
+
+				//add the neighbors
+				if (row > 0 && isOpen(row - 1, col))
+				{
+					queue.push(std::tuple<int, int>(row - 1, col));
+				}
+
+				if (col > 0 && isOpen(row, col - 1))
+				{
+					queue.push(std::tuple<int, int>(row, col - 1));
+				}
+				if (isOpen(row + 1, col))
+				{
+					queue.push(std::tuple<int, int>(row + 1, col));
+				}
+				if (MazeY && isOpen(row, col + 1))
+				{
+					queue.push(std::tuple<int, int>(row, col + 1));
+				}
+
+
+			}
+		}
+	}
+
+
+	return vistedPoints.size();
+
+
+}
+
 
 bool isOpen(unsigned int x, unsigned int y)
 {
