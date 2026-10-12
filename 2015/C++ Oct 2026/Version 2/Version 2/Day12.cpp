@@ -31,7 +31,7 @@ void Day12Part1()
 	for (auto line : lines)
 	{
 
-		cout << line << endl;
+		//cout << line << endl;
 		
 		splitlines.push_back(std::views::split(line, ' ') | std::ranges::to<vector<string>>());
 		i++;
@@ -106,7 +106,89 @@ void Day12Part1()
 }
 void Day12Part2()
 {
+	vector <string> lines{};
+	GetLinesFromFile("Day12.txt", lines);
+	vector<vector<string>> splitlines{};
+	int i = 0;
+	std::unordered_map<char, int> map{};
 
+	map['a'] = 0;
+	map['b'] = 0;
+	map['c'] = 1;
+	map['d'] = 0;
+
+	for (auto line : lines)
+	{
+
+		//cout << line << endl;
+
+		splitlines.push_back(std::views::split(line, ' ') | std::ranges::to<vector<string>>());
+		i++;
+	}
+
+	int lineCount{ 0 };
+
+	while (lineCount < splitlines.size() && lineCount >= 0)
+	{
+		if (splitlines[lineCount][0] == "cpy")
+		{
+			string valueCoppied{ splitlines[lineCount][1] };
+			char key{ splitlines[lineCount][2][0] };
+			if (!std::any_of(valueCoppied.begin(), valueCoppied.end(),
+				[](unsigned char c) {
+					return std::isalpha(c);
+				}))
+			{
+				map[key] = std::stoi(valueCoppied);
+			}
+			else
+			{
+				map[key] = map[splitlines[lineCount][1][0]];
+			}
+			lineCount++;
+		}
+		else if (splitlines[lineCount][0] == "inc")
+		{
+			map[splitlines[lineCount][1][0]]++;
+			lineCount++;
+		}
+		else if (splitlines[lineCount][0] == "dec")
+		{
+			map[splitlines[lineCount][1][0]]--;
+			lineCount++;
+		}
+		else if (splitlines[lineCount][0] == "jnz")
+		{
+			string valueCoppied{ splitlines[lineCount][1] };
+			if (!std::any_of(valueCoppied.begin(), valueCoppied.end(),
+				[](unsigned char c) {
+					return std::isalpha(c);
+				}))
+			{
+				if (std::stoi(valueCoppied) == 0)
+				{
+					lineCount++;
+				}
+				else
+				{
+					lineCount += stoi(splitlines[lineCount][2]);
+				}
+			}
+			else
+			{
+				if (map[valueCoppied[0]] != 0)
+				{
+					lineCount += stoi(splitlines[lineCount][2]);
+				}
+				else
+				{
+					lineCount++;
+				}
+			}
+		}
+	}
+
+	cout << "Day 12 part 2: " << map['a'] << endl;
 }
 
 void GetLinesFromFile(const string& filename, vector<string>& lines)
