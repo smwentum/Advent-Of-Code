@@ -14,9 +14,9 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-const int MazeX{ 40 };
-const int MazeY{ 40 };
-const int TestCase{10}; //1352
+const int MazeX{ 90 };
+const int MazeY{ 90 };
+const int TestCase{ 1352 }; //1352
 
 void Day13Part1()
 {
@@ -26,7 +26,7 @@ void Day13Part1()
 
 	//now that the map is created get 
 
-	long long answer{ BFS(maze)};
+	long long answer{ BFS()};
 
 	//134 is too high
 	cout << "Day 13 part 1: " << answer  << endl; 
@@ -87,13 +87,13 @@ void printMaze(const vector<string>& maze)
 	}
 }
 
-long long BFS(const vector<string>& maze)
+long long BFS()
 {
 	std::unordered_map<std::tuple<int, int>, int, TupleHash> vistedPoints{};
 
 	std::tuple<int, int> startPoint(1, 1);
 	std::tuple<int, int> sentinle(-1, -1); 
-	std::tuple<int, int> endPoint(7, 4);
+	std::tuple<int, int> endPoint(31, 39);
 
 	std::queue<std::tuple<int,int>> queue{}; 
 
@@ -133,20 +133,20 @@ long long BFS(const vector<string>& maze)
 				int col{ std::get<1>(currentPoint) };
 
 				//add the neighbors
-				if (row > 0 && maze[row-1][col] == '.')
+				if (row > 0 && isOpen(row-1,col) )
 				{
-					queue.push(std::tuple<int, int>(std::get<0>(currentPoint) -1, std::get<1>(currentPoint)));
+					queue.push(std::tuple<int, int>(row -1, col));
 				}
 
-				if (col > 0 && maze[row][col-1] == '.')
+				if (col > 0 && isOpen(row, col-1))
 				{
-					queue.push(std::tuple<int, int>(std::get<0>(currentPoint), std::get<1>(currentPoint)-1 ));
+					queue.push(std::tuple<int, int>(row, col-1 ));
 				}
-				if (row+1 < MazeX &&maze[row + 1][col] == '.')
+				if ( isOpen(row + 1,col) )
 				{
 					queue.push(std::tuple<int, int>(row + 1, col));
 				}
-				if (col+1 < MazeY && maze[row][col + 1] == '.')
+				if (MazeY && isOpen(row , col+1))
 				{
 					queue.push(std::tuple<int, int>(row, col + 1));
 				}
@@ -160,4 +160,17 @@ long long BFS(const vector<string>& maze)
 	return distance; 
 
 
+}
+
+bool isOpen(unsigned int x, unsigned int y)
+{
+	if (x < 0 || y < 0)
+	{
+		return false;
+	}
+
+	unsigned int val{ x * x + 3 * x + 2 * x * y + y + y * y + TestCase };
+
+	return std::popcount(val) % 2 == 0;
+	
 }
