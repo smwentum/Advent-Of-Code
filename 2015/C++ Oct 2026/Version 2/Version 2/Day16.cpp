@@ -41,7 +41,31 @@ void Day16Part1()
 }
 void Day16Part2()
 {
-	
+	//test case 
+	//string startString{ "10000" };
+	//int length{ 20 };
+
+	string startString{ "00111101111101000" };
+	int length{ 35651584 };
+
+	while (startString.size() < length)
+	{
+		startString += "0" + GetTail(startString);
+
+	}
+	//cout << startString << endl;
+
+	startString = startString.substr(0, length);
+
+	//cout << startString << endl;
+
+
+	while (startString.length() > 0 && startString.length() % 2 == 0)
+	{
+		startString = createCheckSum(startString);
+		//cout << startString << endl;
+	}
+	cout << "Day 16 part 2: " << startString << endl;
 }
 
 
