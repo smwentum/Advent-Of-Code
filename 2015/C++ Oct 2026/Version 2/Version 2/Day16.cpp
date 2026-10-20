@@ -14,25 +14,28 @@ using std::endl;
 void Day16Part1()
 {
 	//test case 
-	string startString{ "10000" };
-	int length{ 20 };
+	//string startString{ "10000" };
+	//int length{ 20 };
+
+	string startString{ "00111101111101000" };
+	int length{ 272 };
 
 	while (startString.size() < length)
 	{
 		startString +="0"+ GetTail(startString);
 
 	}
-	cout << startString << endl;
+	//cout << startString << endl;
 
 	startString = startString.substr(0, length);
 
-	cout << startString << endl;
+	//cout << startString << endl;
 
 
 	while (startString.length() > 0 && startString.length() % 2 == 0)
 	{
 		startString = createCheckSum(startString);
-		cout << startString << endl;
+		//cout << startString << endl;
 	}
 	cout << "Day 16 part 1: " << startString << endl; 
 }
