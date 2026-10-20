@@ -19,12 +19,22 @@ void Day16Part1()
 
 	while (startString.size() < length)
 	{
-		startString += GetTail(startString);
-		
-	}
-	cout << startString;
+		startString +="0"+ GetTail(startString);
 
-	
+	}
+	cout << startString << endl;
+
+	startString = startString.substr(0, length);
+
+	cout << startString << endl;
+
+
+	while (startString.length() > 0 && startString.length() % 2 == 0)
+	{
+		startString = createCheckSum(startString);
+		cout << startString << endl;
+	}
+	cout << "Day 16 part 1: " << startString << endl; 
 }
 void Day16Part2()
 {
@@ -32,14 +42,34 @@ void Day16Part2()
 }
 
 
+std::string createCheckSum(const std::string& s)
+{
+	string ans{ "" }; 
+
+	for (int i = 0; i < s.length() - 1; i += 2)
+	{
+		if (s[i] == s[i + 1])
+		{
+			ans += "1";
+		}
+		else
+		{
+			ans += "0";
+		}
+	}
+
+	return ans; 
+}
+
 std::string GetTail(const std::string &s)
 {
 	string s1{ s };
 
 
+	string ans{ "" };
 	std::reverse(s1.begin(), s1.end()); 
 	
-	string ans{""};
+	
 
 	for (char c1 : s1)
 	{

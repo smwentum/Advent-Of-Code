@@ -5,3 +5,4 @@
 void Day16Part1();
 void Day16Part2(); 
 std::string GetTail(const std::string& s);
+std::string createCheckSum(const std::string& s);
