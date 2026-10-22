@@ -58,14 +58,18 @@ std::string compute_md5(const std::string& input) {
     if (EVP_DigestFinal_ex(context.get(), hash, &hash_len) != 1) {
         throw std::runtime_error("Failed to finalize MD5 digest.");
     }
+	if (hash[0] == 0 && hash[1] == 0 && (hash[2] & 0xF0) == 0) {
+		// The first 20 bits are zero
+            // Convert the raw binary array into a readable hexadecimal string
+        std::stringstream hex_stream;
+        for (unsigned int i = 0; i < hash_len; ++i) {
+            hex_stream << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(hash[i]);
+        }
 
-    // Convert the raw binary array into a readable hexadecimal string
-    std::stringstream hex_stream;
-    for (unsigned int i = 0; i < hash_len; ++i) {
-        hex_stream << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(hash[i]);
-    }
+        return hex_stream.str();
+	}
 
-    return hex_stream.str();
+    return ""; 
 }
 
 void Day5Part1()
