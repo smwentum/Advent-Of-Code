@@ -48,3 +48,10 @@ TEST(FakeDayTests, HandlesSampleInput2)
     vector<int> v2{ 4, 3, 5,3,9,3 };
     EXPECT_EQ(DayOnePartOneAnswer(v1, v2), 11);
 }
+
+TEST(FakeDayTests, HandlesSamplePartTwoInput1)
+{
+    vector<int> v1{ 3, 4, 2,1,3,3 };
+    vector<int> v2{ 4, 3, 5,3,9,3 };
+    EXPECT_EQ(DayOnePartOneAnswer(v1, v2), 11);
+}
