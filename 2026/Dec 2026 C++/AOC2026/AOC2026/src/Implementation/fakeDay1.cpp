@@ -21,7 +21,7 @@ void FakeDay1Part1()
 	path += "DayFake.txt";
 	//cout << "Path: " << path << endl;
 	GetData(path,lst1,lst2);
-	cout << "Day Fake Part 1: " << DayOnePartOneAnswer(lst1, lst2);
+	cout << "Day Fake Part 1: " << DayOnePartOneAnswer(lst1, lst2) << endl;
 }
 
 void FakeDay1Part2()
@@ -32,7 +32,7 @@ void FakeDay1Part2()
 	path += "DayFake.txt";
 	//cout << "Path: " << path << endl;
 	GetData(path, lst1, lst2);
-	cout << "Day Fake Part 1: " << DayOnePartOneAnswer(lst1, lst2);
+	cout << "Day Fake Part 2: " << DayOnePartTwoAnswer(lst1, lst2) << endl;
 }
 
 int DayOnePartOneAnswer(vector<int> &lst1, vector<int> &lst2)
