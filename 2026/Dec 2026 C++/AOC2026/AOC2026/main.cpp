@@ -9,6 +9,8 @@ using namespace std;
 int main()
 {
 	cout << "Advent of Code 2026" << "\n" << "By Sai" << endl;
+	cout << "\n\n\n" << endl;
 	FakeDay1Part1();
+	cout << "\n\n\n" << endl;
 	
 }
