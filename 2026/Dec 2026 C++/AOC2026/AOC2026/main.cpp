@@ -2,11 +2,13 @@
 //
 
 #include <iostream>
+#include "src/Includes/fakeDay1.h"
 
 using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+	cout << "Advent of Code 2026" << "\n" << "By Sai" << endl;
+	FakeDay1Part1();
+	
 }
