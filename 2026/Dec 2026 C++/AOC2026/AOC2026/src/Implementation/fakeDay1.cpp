@@ -1,8 +1,11 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <ranges>
 #include <string>
 #include <sstream>
 #include <vector>
+
 
 #include "../Includes/fakeDay1.h"
 
@@ -11,13 +14,35 @@ using namespace std;
 void FakeDay1Part1()
 {
 	vector<int> lst1{};
-	vector<int> lst2{}; 
-	GetData("../TextFiles/DayFakea.txt",lst1,lst2);
+	vector<int> lst2{};
+	string path{ DATA_PATH };
+	path += "DayFake.txt";
+	//cout << "Path: " << path << endl;
+	GetData(path,lst1,lst2);
+	cout << "Day Fake Part 1: " << DayOnePartOneAnswer(lst1, lst2);
+}
+
+int DayOnePartOneAnswer(vector<int> &lst1, vector<int> &lst2)
+{
+	std::ranges::sort(lst1);
+	std::ranges::sort(lst2);
+	int totalDiff{ 0 };
+	if (lst1.size() == lst2.size())
+	{
+		for (int i = 0; i < lst1.size(); i++)
+		{
+			totalDiff += abs(lst1[i] - lst2[i]);
+		}
+	}
+
+	return totalDiff; 
 
 }
 
+
 void GetData(string fileName, vector<int> &lst1, vector<int> &lst2)
 {
+
 	ifstream file(fileName); 
 	
 	if (!file.is_open())
@@ -27,12 +52,14 @@ void GetData(string fileName, vector<int> &lst1, vector<int> &lst2)
 
 	int a, b;
 	string line; 
-	while (getline(cin, line))
+	while (getline(file, line))
 	{
 		stringstream ss(line); 
 		if (ss >> a >> b);
 		{
-			cout << a << " " << b << endl;
+			//cout << a << " " << b << endl;
+			lst1.push_back(a);
+			lst2.push_back(b);
 		}
 	}
 }
